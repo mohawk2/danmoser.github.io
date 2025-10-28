@@ -1892,6 +1892,114 @@ Brownie saudavel
 
 Misture bem todos os ingredientes em um processador. Unte uma forma com oleo de coco. Leve ao forno 180.C por 20 minutos. Alternativamente, leve ao micro-ondas por 4 ou 5 minutos.
 
+Arroz doce
+--------------
+Ingredientes:
+
+- 2 xicara de arroz cozido
+- 1 litro de leite
+- 1 lata de leite condensado
+- 1 lata de leite de coco
+- Coco ralado
+
+Modo de preparo
+~~~~~~~~~~~~~~~~~~~
+Cozinhe o arroz, quando estiver cozido acrescente todos os ingredientes, diminua o fogo quando começar ferver, ficar atento pq o leite sobe, mexer até ficar cremoso
+
+
+Cuca de banana
+---------------
+Cobertura
+~~~~~~~~~~
+- 6 bananas-nanicas maduras
+- 3/4 de xícara (chá) de açúcar
+- 3/4 de xícara (chá) de farinha de trigo
+- 50 g de manteiga gelada
+- 1 colher (chá) de canela em pó
+
+Preaqueça o forno a 180.C (temperatura média).
+
+Numa tigela média, misture a farinha, o açúcar e a canela. Corte a manteiga em cubos e misture com as pontas dos dedos, até formar uma farofa.
+
+Descasque e fatie a banana em rodelas de 1 cm. Reserve.
+
+Massa
+~~~~~~~~
+- 2 xícaras (chá) de farinha de trigo
+- 1 1/2 xícara (chá) de açúcar
+- 3 ovos
+- 50 g de manteiga em temperatura ambiente (cerca de 3 colheres (sopa))
+- 3/4 de xícara (chá) de leite
+- 1 colher (sopa) de fermento em pó
+- manteiga e farinha de trigo para untar e polvilhar a assadeira
+
+Unte com manteiga uma assadeira retangular de 32 cm X 22 cm. Polvilhe com farinha, chacoalhe bem para espalhar e bata sobre a pia para retirar o excesso.
+
+Na tigela da batedeira, coloque a manteiga e o açúcar. Se a manteiga não estiver em temperatura ambiente, leve ao micro-ondas para rodar por 15 segundos para ficar no ponto pomada. Comece batendo na velocidade baixa e aumente gradualmente – assim evita que o açúcar espirre para fora da batedeira. Bata por 2 minutos até formar uma farofa úmida.
+
+Numa tigela pequena, quebre um ovo de cada vez e junte à mistura de manteiga com açúcar, batendo a cada adição para incorporar. Bata por mais 2 minutos até formar um creme claro – se necessário, pare de bater e raspe a lateral da tigela com uma espátula.
+
+Diminua a velocidade da batedeira e adicione a farinha em 3 etapas, intercalando com o leite – termine com a farinha para evitar que a massa fique com aspecto talhado. Bata a cada adição apenas para incorporar os ingredientes – novamente, caso precise, pare de bater e raspe a lateral da tigela com a espátula durante o processo.
+
+Desencaixe a tigela da batedeira, acrescente o fermento e misture delicadamente com a espátula. Transfira a massa para a assadeira e nivele bem. Distribua as rodelas de banana sobre a massa, uma ao lado da outra sem sobrepor.
+
+Para cobrir, amasse pequenas quantidades de farofa com as mãos e disponha sobre a cuca. Repita até cobrir tudo. Quanto mais irregular ficar a cobertura, com partes mais esfareladas e porções mais firmes, mais crocante a cuca fica.
+
+Leve ao forno para assar por cerca de 40 minutos ou até o bolo crescer e a farofa dourar. Atenção: nessa receita o teste do palito não funciona, pois pode sair molhado por conta da banana. Retire a cuca do forno e deixe esfriar completamente antes de servir – a farofa fica mais crocante depois de fria.
+
+https://panelinha.com.br/receita/cuca-de-banana
+
+Churrasco
+============
+Three appreciated beef steaks for churrasco: picanha, flat iron and chuckie. (Unknown source)
+
+Some people say that tenderloin is "flavorless"...
+
+Picanha is the cap that sits on top of the Top Sirloin with the fat on. Also called as Rump Cap.
+
+
+Equivalencia
+-------------
+- Brisket = ponta do acem
+- Chuck = acem
+- Flat iron = acem
+- Shank = musculo
+- Plate = ponta de agulha
+- Rib = capa do file + file da costela
+- Short ribs = acem com osso
+- Short loin = contrafile
+- Flank = fraldinha
+- Sirloin = alcatra
+- Terdenloin = file mignon
+- Top sirloin = picanha
+- Rump = alcatra
+- Rump cap = picanha
+- Bottom sirloin = maminha ou patinho
+- Round = lagarto ou patinho
+
+
+Equivalence
+------------
+- (costela) ponta de agulha = plate/shortplate
+- acem = chuck*/chuckie/flat iron/brisket*
+- acem com osso = short ribs*
+- alcatra = sirloin/rump
+- contrafile/lombo = short loin*/striploin/t-bone steak/NY strip steak/porterhouse
+- costela-do-traseiro = brisket*/rib set
+- coxao duro = outside flat/top round
+- coxao mole = topside/silverside
+- file de costela = ribeye steak/prime rib (com osso)
+- filet mignon = tenderloin
+- fraldinha = flank/London/skirt
+- lagarto = eye round/top round
+- maminha (de alcatra) = tri-tip/tail of round
+- musculo = shank
+- paleta = chuck*/blade
+- patinho = bottom sirloin/round*/knuckle
+- peito = brisket
+- picanha = top sirloin/rump cap
+
+
 Drinks
 =======
 - "shot" ("dose") = 2 oz

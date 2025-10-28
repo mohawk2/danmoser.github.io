@@ -34,7 +34,7 @@ Shadow of 2024's total solar eclipse
 --------------------------------------
 NOAA's GOES-16 satellite is captured the shadow of the total solar eclipse as it traversed the continental United States.
 
-https://twitter.com/WxNB_/status/1777427591248425402
+https://twitter.com/WxNB\_/status/1777427591248425402
 
 ---------
 

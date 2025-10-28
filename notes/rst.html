@@ -1,18 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
+<meta charset="utf-8" />
+<meta name="generator" content="Docutils 0.21.2: https://docutils.sourceforge.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reST Tips</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -275,7 +276,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -301,7 +302,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -360,99 +361,46 @@ ul.auto-toc {
 </style>
 <style type="text/css">
 
-/*body {
-   width: 1000px;
-   margin-left: auto;
-   margin-right: auto;
-}
-*/
-table {
-    margin: 0 auto;
-    text-align: center;
-    border-collapse: collapse;
-    vertical-align: center;
-    valig: center;
-}
-
-th,
-td {
-    padding: 5px;
-    vertical-align: middle;
-    /*text-align: left;*/
-    /*border-bottom: 1px solid #ddd;*/
-}
-
-tr:nth-child(even) {
-    background-color: #e6e6e6
-}
-
-tr:hover {
-    background-color: #bfbfbf
-}
-
-.strike {
-  text-decoration: line-through;
-}
-
-p {
-    max-width: 1000px;
-    text-align: justify;
-    text-justify: inter-word;
-} 
-
-li {
-    max-width: 1000px;
-    text-align: justify;
-    text-justify: inter-word;
-}
-
-.center {
-    text-align: center;
-}
 
 </style>
 </head>
-<body>
-<div class="document" id="rest-tips">
+<body class="with-toc">
+<main id="rest-tips">
 <h1 class="title">reST Tips</h1>
 
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title">Table of contents</p>
+<nav class="contents" id="table-of-contents" role="doc-toc">
+<p class="topic-title"><a class="reference internal" href="#top">Table of contents</a></p>
 <ul class="simple">
-<li><a class="reference internal" href="#how-to-install" id="toc-entry-1">How to install</a></li>
-<li><a class="reference internal" href="#usage-examples" id="toc-entry-2">Usage examples</a></li>
-<li><a class="reference internal" href="#file-example-here" id="toc-entry-3">File example (here)</a></li>
-<li><a class="reference internal" href="#good-references" id="toc-entry-4">Good references</a></li>
-<li><a class="reference internal" href="#advanced-feature-example" id="toc-entry-5">Advanced feature example</a></li>
-<li><a class="reference internal" href="#making-presentations" id="toc-entry-6">Making presentations</a><ul>
-<li><a class="reference internal" href="#rst2pdf" id="toc-entry-7">rst2pdf</a></li>
-<li><a class="reference internal" href="#rst2beamer" id="toc-entry-8">rst2beamer</a></li>
+<li><p><a class="reference internal" href="#how-to-install" id="toc-entry-1">How to install</a></p></li>
+<li><p><a class="reference internal" href="#usage-examples" id="toc-entry-2">Usage examples</a></p></li>
+<li><p><a class="reference internal" href="#file-example-here" id="toc-entry-3">File example (here)</a></p></li>
+<li><p><a class="reference internal" href="#good-references" id="toc-entry-4">Good references</a></p></li>
+<li><p><a class="reference internal" href="#advanced-feature-example" id="toc-entry-5">Advanced feature example</a></p></li>
+<li><p><a class="reference internal" href="#making-presentations" id="toc-entry-6">Making presentations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rst2pdf" id="toc-entry-7">rst2pdf</a></p></li>
+<li><p><a class="reference internal" href="#rst2beamer" id="toc-entry-8">rst2beamer</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-example" id="toc-entry-9">Other example</a></li>
+<li><p><a class="reference internal" href="#other-example" id="toc-entry-9">Other example</a></p></li>
 </ul>
-</div>
-<div class="section" id="how-to-install">
-<h1><a class="toc-backref" href="#toc-entry-1">How to install</a></h1>
-<pre class="code bash literal-block">
-<span class="comment single"># Linux (Ubuntu, Debian)
+</nav>
+<section id="how-to-install">
+<h2><a class="toc-backref" href="#toc-entry-1" role="doc-backlink">How to install</a></h2>
+<pre class="code bash literal-block"><code><span class="comment single"># Linux (Ubuntu, Debian)
 </span>$<span class="whitespace"> </span>sudo<span class="whitespace"> </span>apt-get<span class="whitespace"> </span>install<span class="whitespace"> </span>python-docutils<span class="whitespace">
 </span><span class="comment single"># MacOS
-</span>$<span class="whitespace"> </span>sudo<span class="whitespace"> </span>pip<span class="whitespace"> </span>install<span class="whitespace"> </span>docutils
-</pre>
-</div>
-<div class="section" id="usage-examples">
-<h1><a class="toc-backref" href="#toc-entry-2">Usage examples</a></h1>
-<pre class="code bash literal-block">
-$<span class="whitespace"> </span>rst2html<span class="whitespace"> </span>file.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>file.html<span class="whitespace">
+</span>$<span class="whitespace"> </span>sudo<span class="whitespace"> </span>pip<span class="whitespace"> </span>install<span class="whitespace"> </span>docutils</code></pre>
+</section>
+<section id="usage-examples">
+<h2><a class="toc-backref" href="#toc-entry-2" role="doc-backlink">Usage examples</a></h2>
+<pre class="code bash literal-block"><code>$<span class="whitespace"> </span>rst2html<span class="whitespace"> </span>file.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>file.html<span class="whitespace">
 </span>$<span class="whitespace"> </span>rst2latex<span class="whitespace"> </span>file.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>file.tex<span class="whitespace">
-</span>$<span class="whitespace"> </span>pdflatex<span class="whitespace"> </span>file.tex
-</pre>
-</div>
-<div class="section" id="file-example-here">
-<h1>File example (<a class="reference external" href="example.html">here</a>)</h1>
-<pre class="literal-block">
-Title or main part
+</span>$<span class="whitespace"> </span>pdflatex<span class="whitespace"> </span>file.tex</code></pre>
+</section>
+<section id="file-example-here">
+<h2>File example (<a class="reference external" href="example.html">here</a>)</h2>
+<pre class="literal-block">Title or main part
 ###################
 
 .. contents:: Table of contents
@@ -547,50 +495,41 @@ Then, you need to provide optional subsection ...
 
 A &quot;figure&quot; consists of image data, an optional caption (a single paragraph), and an optional legend (arbitrary body elements). For page-based output media, figures might float to a different position if this helps the page layout.
 
-thisis\ *one*\ word (with *emph*)!
-</pre>
-</div>
-<div class="section" id="good-references">
-<h1><a class="toc-backref" href="#toc-entry-4">Good references</a></h1>
+thisis\ *one*\ word (with *emph*)!</pre>
+</section>
+<section id="good-references">
+<h2><a class="toc-backref" href="#toc-entry-4" role="doc-backlink">Good references</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></li>
-<li><a class="reference external" href="http://sphinx-doc.org/rest.html">http://sphinx-doc.org/rest.html</a></li>
+<li><p><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></p></li>
+<li><p><a class="reference external" href="http://sphinx-doc.org/rest.html">http://sphinx-doc.org/rest.html</a></p></li>
 </ul>
-</div>
-<div class="section" id="advanced-feature-example">
-<h1><a class="toc-backref" href="#toc-entry-5">Advanced feature example</a></h1>
+</section>
+<section id="advanced-feature-example">
+<h2><a class="toc-backref" href="#toc-entry-5" role="doc-backlink">Advanced feature example</a></h2>
 <p>Strikethrough text in html and latex. In the document:</p>
-<pre class="literal-block">
-.. role:: strike
-    :class: strike
-</pre>
+<pre class="literal-block">.. role:: strike
+    :class: strike</pre>
 <p>This can be applied as follows:</p>
 <blockquote>
-<tt class="docutils literal"><span class="pre">:strike:\`This</span> text will be crossed <span class="pre">out.\`</span></tt></blockquote>
+<p><span class="docutils literal"><span class="pre">:strike:\`This</span> text will be crossed <span class="pre">out.\`</span></span></p>
+</blockquote>
 <p>Then in my css file I have an entry (html output):</p>
-<pre class="code css literal-block">
-<span class="punctuation">.</span><span class="name class">strike</span><span class="whitespace"> </span><span class="punctuation">{</span><span class="whitespace">
+<pre class="code css literal-block"><code><span class="punctuation">.</span><span class="name class">strike</span><span class="whitespace"> </span><span class="punctuation">{</span><span class="whitespace">
   </span><span class="keyword">text-decoration</span><span class="punctuation">:</span><span class="whitespace"> </span><span class="keyword constant">line-through</span><span class="punctuation">;</span><span class="whitespace">
-</span><span class="punctuation">}</span>
-</pre>
+</span><span class="punctuation">}</span></code></pre>
 <p>Or in my extra latex file:</p>
-<pre class="literal-block">
-\usepackage{ulem}
-\newcommand*{\DUrolestrike}{\sout}
-</pre>
+<pre class="literal-block">\usepackage{ulem}
+\newcommand*{\DUrolestrike}{\sout}</pre>
 <p>And it is compiled as:</p>
-<pre class="code bash literal-block">
-$<span class="whitespace"> </span>rst2html<span class="whitespace"> </span>--stylesheet<span class="operator">=</span>syntax.css<span class="whitespace"> </span><span class="keyword">in</span>.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>out.html<span class="whitespace">
-</span>$<span class="whitespace"> </span>rst2latex<span class="whitespace"> </span>--stylesheet<span class="operator">=</span>syntax.tex<span class="whitespace"> </span><span class="keyword">in</span>.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>out.tex
-</pre>
-</div>
-<div class="section" id="making-presentations">
-<h1><a class="toc-backref" href="#toc-entry-6">Making presentations</a></h1>
-<div class="section" id="rst2pdf">
-<h2><a class="toc-backref" href="#toc-entry-7">rst2pdf</a></h2>
+<pre class="code bash literal-block"><code>$<span class="whitespace"> </span>rst2html<span class="whitespace"> </span>--stylesheet<span class="operator">=</span>syntax.css<span class="whitespace"> </span><span class="keyword">in</span>.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>out.html<span class="whitespace">
+</span>$<span class="whitespace"> </span>rst2latex<span class="whitespace"> </span>--stylesheet<span class="operator">=</span>syntax.tex<span class="whitespace"> </span><span class="keyword">in</span>.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>out.tex</code></pre>
+</section>
+<section id="making-presentations">
+<h2><a class="toc-backref" href="#toc-entry-6" role="doc-backlink">Making presentations</a></h2>
+<section id="rst2pdf">
+<h3><a class="toc-backref" href="#toc-entry-7" role="doc-backlink">rst2pdf</a></h3>
 <p>Create a &quot;slides.style&quot; to <cite>rst2pdf</cite>:</p>
-<pre class="code css literal-block">
-<span class="punctuation">{</span><span class="error">&quot;pageSetup&quot;:</span><span class="whitespace"> </span><span class="error">{</span><span class="whitespace">
+<pre class="code css literal-block"><code><span class="punctuation">{</span><span class="error">&quot;pageSetup&quot;:</span><span class="whitespace"> </span><span class="error">{</span><span class="whitespace">
     </span><span class="error">&quot;width&quot;:</span><span class="whitespace"> </span><span class="error">&quot;16cm&quot;,</span><span class="whitespace">
     </span><span class="error">&quot;height&quot;:</span><span class="whitespace"> </span><span class="error">&quot;10cm&quot;,</span><span class="whitespace">
     </span><span class="error">&quot;margin-top&quot;:</span><span class="whitespace"> </span><span class="error">&quot;2mm&quot;,</span><span class="whitespace">
@@ -619,25 +558,19 @@ $<span class="whitespace"> </span>rst2html<span class="whitespace"> </span>--sty
         </span><span class="error">&quot;showFooter&quot;</span><span class="whitespace"> </span><span class="error">:</span><span class="whitespace"> </span><span class="error">false</span><span class="whitespace">
     </span><span class="punctuation">}</span><span class="whitespace">
   </span><span class="error">}</span><span class="whitespace">
-</span><span class="error">}</span>
-</pre>
-<pre class="code bash literal-block">
-$<span class="whitespace"> </span>rst2pdf<span class="whitespace"> </span>slides.rst<span class="whitespace"> </span>-b1<span class="whitespace"> </span>-s<span class="whitespace"> </span>slides.style<span class="whitespace">
-</span>$<span class="whitespace"> </span>rst2pdf<span class="whitespace"> </span>-b2<span class="whitespace"> </span>-s<span class="whitespace"> </span>a4-landscape<span class="whitespace"> </span>-o<span class="whitespace"> </span>path/temp.pdf<span class="whitespace"> </span>slides.rst
-</pre>
-</div>
-<div class="section" id="rst2beamer">
-<h2><a class="toc-backref" href="#toc-entry-8">rst2beamer</a></h2>
-<pre class="code bash literal-block">
-$<span class="whitespace"> </span>rst2beamer<span class="whitespace"> </span>slides.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>slides.tex<span class="whitespace">
-</span>$<span class="whitespace"> </span>pdflatex<span class="whitespace"> </span>slides.tex
-</pre>
-</div>
-</div>
-<div class="section" id="other-example">
-<h1><a class="toc-backref" href="#toc-entry-9">Other example</a></h1>
-<pre class="literal-block">
-&quot;&quot;&quot; **Short** description of the function/class, saying what it returns!
+</span><span class="error">}</span></code></pre>
+<pre class="code bash literal-block"><code>$<span class="whitespace"> </span>rst2pdf<span class="whitespace"> </span>slides.rst<span class="whitespace"> </span>-b1<span class="whitespace"> </span>-s<span class="whitespace"> </span>slides.style<span class="whitespace">
+</span>$<span class="whitespace"> </span>rst2pdf<span class="whitespace"> </span>-b2<span class="whitespace"> </span>-s<span class="whitespace"> </span>a4-landscape<span class="whitespace"> </span>-o<span class="whitespace"> </span>path/temp.pdf<span class="whitespace"> </span>slides.rst</code></pre>
+</section>
+<section id="rst2beamer">
+<h3><a class="toc-backref" href="#toc-entry-8" role="doc-backlink">rst2beamer</a></h3>
+<pre class="code bash literal-block"><code>$<span class="whitespace"> </span>rst2beamer<span class="whitespace"> </span>slides.rst<span class="whitespace"> </span>&gt;<span class="whitespace"> </span>slides.tex<span class="whitespace">
+</span>$<span class="whitespace"> </span>pdflatex<span class="whitespace"> </span>slides.tex</code></pre>
+</section>
+</section>
+<section id="other-example">
+<h2><a class="toc-backref" href="#toc-entry-9" role="doc-backlink">Other example</a></h2>
+<pre class="literal-block">&quot;&quot;&quot; **Short** description of the function/class, saying what it returns!
 
 This is a longer explanation, which may include math with latex syntax
 :math:`\\alpha`.
@@ -728,9 +661,8 @@ Subparagraph
 
 Section to cross-reference
 ----------------------------
-It refers to the section itself, see :ref:`my-ref-label`.
-</pre>
-</div>
-</div>
+It refers to the section itself, see :ref:`my-ref-label`.</pre>
+</section>
+</main>
 </body>
 </html>
