@@ -4,6 +4,107 @@ Receitas
 .. contents:: Índice
     :depth: 2
 
+Sopas
+=========
+Miso Soup
+---------------
+Ingredients
+
+- 2 cups water
+- 1 (2x2-inch) piece dried kombu
+- 1 cup loosely packed katsuobushi (dried bonito flakes, 5 grams)
+- 2 teaspoons dried wakame (seaweed, optional)
+- 1 to 2 scallions
+- 4 ounces soft tofu
+- 2 tablespoons white or red miso paste (white is milder in flavor)
+
+How to Make Miso Soup
+
+#. Make the dashi. Heat kombu and cold water in a saucepan until just before bubbles start to release from the bottom of the saucepan. Don't let the water come to a boil, or the kombu can get slimy or bitter. Turn off the heat and remove the kombu. Save the kombu for another use, or discard it. Add the katsuobushi, and bring the dashi back to a simmer. Turn off the heat and let steep while you prepare the other ingredients. 
+#. Prepare the garnishes. Add the dried wakame to a small bowl and cover with cold water. Thinly slice scallions. Cut tofu into 1/2-inch cubes. 
+#. Make the miso soup. Strain the dashi and return to the pot. Bring back to a simmer, then turn off the heat. Add the miso to the strainer and place over the soup pot. Push the miso through the strainer and into the soup. Discard any chunks left over in the strainer. Strain the wakame and add to the soup along with the wakame, scallions, and tofu.
+
+https://www.thekitchn.com/how-to-make-miso-soup-cooking-lessons-from-the-kitchn-13786
+
+
+Chickpeas soup
+---------------
+Simple, creamy and simple to make!
+
+Ingredients
+
+- 500g (1 pound) cooked chickpeas;
+- 500g (1 pound) pumpkin;
+- 1 onion
+- 1 medium potato;
+- 1 small carrot;
+- 1 medium tomato;
+- 45ml (3 tbsp) olive oil;
+- Salt and pepper;
+- Fresh parsley, chopped.
+
+Method
+
+1. Peel all the vegetables and cut them into cubes.
+2. Preheat olive oil in a medium pot with a thick bottom. Add olive oil and cook carrots and onions for 10 minutes.
+3. Add pumpkin and potatoes, season with salt and pepper, then pour water over just to cover the vegetables. Cook for 30 minutes on medium-low heat.
+4. Add chopped tomato and parsley, bring to a boil, and remove from heat.
+5. Serve right away, drizzled with olive with 2 slices of ciabatta bread.
+
+Potato Soup
+---------------
+Creamy and healthy.
+
+Ingredients
+
+- 1 tablespoon olive oil
+- 1 medium yellow onion, diced
+- 2 large carrots, diced small
+- 2 stalks celery, diced small (optional)
+- 3 cloves garlic, minced
+- 2 lbs Yukon Gold or Yellow potatoes, peeled and cubed (1-inch pieces)
+- 5 cups low-sodium vegetable or chicken broth (optional)
+- 1 teaspoon dried thyme (or rosemary alternatively)
+- 1/2 cup plain non-fat Greek yogurt (or low-fat sour cream)
+- Salt and black pepper to taste
+
+Instructions
+
+Sauté the Base: Heat olive oil in a large pot over medium heat. Add the onion and celery. Sauté for about 6–8 minutes until the onions are translucent and the celery soften. Add the minced garlic and thyme/rosemary.
+
+Simmer: Add the cubed potatoes and carrots to a boil. Blend about half of the soup. 
+
+Finish: Remove the pot from the heat. Stir in the Greek yogurt until completely incorporated. 
+
+
+Lemony Lentil and Spinach Soup
+---------------------------------
+Ingredients
+
+- 1 tablespoon olive oil
+- 1 yellow onion, chopped
+- 2 carrots, peeled and chopped
+- 2 celery stalks, chopped
+- 2-3 cloves garlic, minced
+- 1 cup brown or green lentils, rinsed
+- 6 cups vegetable broth (optional)
+- 1 (14.5 ounce) can diced tomatoes, undrained
+- 1 teaspoon dried oregano
+- 1/2 teaspoon dried thyme
+- 1/4 teaspoon crushed red pepper flakes (optional, for a little heat)
+- 4-5 ounces baby spinach
+- Juice of 1 large lemon (about 2-3 tablespoons, optional)
+- Salt and black pepper to taste
+
+Instructions
+
+Sauté Aromatics: Heat the olive oil in a large pot or Dutch oven over medium heat. Add the chopped onion, carrots, and celery. Cook for about 5-7 minutes, until the vegetables begin to soften. Add Garlic and Seasonings.
+
+Simmer: Pour in the rinsed lentils, vegetable broth, and diced tomatoes (with their juice). Bring the mixture to a boil until the lentils are tender.
+
+Stir in Spinach and Lemon: Once the lentils are cooked, remove the pot from the heat. Stir in the baby spinach—the residual heat will wilt it immediately. Stir in the lemon juice.
+
+
 Pratos
 =========
 Arroz
@@ -608,6 +709,44 @@ Torta de Zucchini simples
 Rale o zucchini grosso e adicione uma colher de cha de sal. Repouse por 10 minutos e esprema bem o liquido da zucchini. Bata os ovos com os temperos e adicione todos os ingredientes. Cozinhe numa frigedira aquecida com um fio de azeite. Inicie com as rodelas de tomate e adicione a massa no fogo baixo/medio *com tampa* por ~5 minutos, antes de virar. Alternativamente, leve a massa ao forno.
 
 
+Maminha de colher
+---------------------------
+Ingredientes:
+
+- 1 Maminha
+- 1 Cebola
+- Vinho branco (a gosto)
+- 3 dentes de alho
+- 1 Pimentão Vermelho
+- 1 Tomate
+- 50 ml de Shoyu 
+- Pimenta do Reino 
+- Sal
+- Paprica Defumada 
+
+Modo de fazer:
+
+- Selar todos os lados da maminha com sal, pimenta do reino, com um fundo de oleo na panela de pressao. Reserve.
+- Refogar a cebola com outros ingredientes na panela de pressao (menos os temperos).
+- Retorne a peca de maminha, adicione os ultimos temperos. Cubra com agua e deixe na pressao por 45 minutos.
+
+https://www.youtube.com/watch?v=LfmJlaN8YeU
+
+
+Chicken Marinade
+-------------------------
+- 2 tbsp honey OR brown sugar
+- 1 tbsp olive oil (or any oil)
+- 5 tbsp soy sauce
+- 2 tbsp lemon juice
+- 2 tsp Worcestershire sauce
+- 4 garlic cloves, minced
+- 1 tsp dried oregano (or rosemary, thyme, minced herbs)
+- 1/2 tsp black pepper, ground
+
+
+
+
 Pates ([ENG] Dips)
 =====================
 [ENG] Lemon Yogurt Dip
@@ -635,6 +774,26 @@ Cenoura
 Corte as cenouras em rodelas grossas e coloque numa tigela temperando os ingredientes. Misture bem e leve tudo pra assar em forno alto (200°C) por cerca de 25 minutos, ou até a cenoura ficar dourada e macia. 
 
 Bata no liquidificador com os outros ingredientes. Adicione um pouco de agua ou suco para ajustar cremosidade. Finalize com salsinha picada por cima e pimenta se desejar. 
+
+
+Sweet-Hot Asian Dipping
+-------------------------
+Ingredients:
+
+- 3 cups sugar
+- 3 cups cider vinegar
+- 1/4 cup crushed red pepper flakes
+- 6 garlic cloves, minced
+- 2 tablespoons minced fresh ginger root
+- 1-1/2 teaspoons canning salt
+
+Directions:
+
+- Bring sugar and vinegar to a boil. Reduce heat; simmer, uncovered, 5 minutes. Remove from heat; stir in the remaining ingredients.
+- Ladle hot liquid into 6 hot half-pint jars, leaving 1/4-in. headspace. Wipe rims. Center lids on jars; screw on bands until fingertip tight.
+- Place jars into canner with simmering water, ensuring that they are completely covered with water. Bring to a boil; process for 20 minutes. Remove jars and cool.
+
+
 
 
 
@@ -1009,6 +1168,132 @@ Numa vasilha misture a farinha de trigo, o fermento biológico e o sal. Misture 
 Passado esse tempo você já pode assar, mas eu recomendo deixar na geladeira por umas 12 horas para ajudar a desenvolver o sabor da massa. No dia seguinte, pré aqueça o forno na temperatura mais alta que tiver (eu coloquei 280C) , coloque a panela de ferro ou cerâmica para aquecer por 30 minutos. Enquanto isso modele a massa: polvilhe farinha na bancada e despeje a massa. Abra ela até formar um retângulo, puxando pelas laterais. Pega a ponta inferior da massa e dobre em direção ao centro. Depois pega cada uma das pontas laterais e dobre em direção ao dentro (como uma fralda). Pegue a borda superior e puxe em direção à você, enrolando como se fosse um burrito. Depois forme uma bolinha com a massa, empurrando ela com a mão e trazendo em direção a você. Não precisa ficar perfeito, mas isso aumenta a tensão da massa garantindo um pão mais alto.
 
 Coloque o pão numa folha de papel manteiga (isso ajuda na hora de colocar na panela). E com cuidado coloque na panela. Adicione umas 4 pedras de gelo, tampe e asse por 20 minutos. Depois tire a tampa e deixe assar até dourar.
+
+
+Pão Matlouh, pão argelino
+---------------------------
+- 350g de semoule (mistura entre fina e média se puder)
+- 100g de farinha de trigo (ou levain)
+- 60ml de água morna
+- 7g fermento "active dry yeast" ou um saquinho, se for menos é só deixar mais tempo (uns 10minutos) no repouso com todos ingredientes 
+- 1 colher de sopa rasa de açúcar
+- 1 colher de café de sal
+- 100 ml ou mais de leite
+
+Preparo:
+
+- Pega a farinha de trigo e uns 50ml de água morna pra misturar o fermento de saquinho, deixa repousar uns 10 min
+- Enquanto isso vai preenchendo outra vasilha com a semola , sal e açúcar e dá uma misturada
+- Junta os dois
+- Vai ponto a qtdade de leite aos poucos, até ficar uma massa firme. 
+- Mistura e sova, não precisa ficar em ponto de véu, só deixar a massa lisa
+- Repousa por 2 horas
+- Faz bolas, pegando pedaços da massa de cerca de 140g, puxando das extremidades pro centro e fechando a bola com a ponta dos dedos
+- Repousa 15 min
+- Faz discos apertando com as mãos, com a marca da junção pra baixo. 
+- Repousa 30 minutos (pode ser menos q da certo)
+- Leva pra frigideira 3 minutos de cada lado em fogo baixo (em casa: nível 3,5 da coil) ou mais se sentir necessidade
+
+
+Pao frances mega complicado
+----------------------------
+Ingredientes
+
+- 360 g (3 xícaras) de farinha de trigo
+- 230 g (1 xícara) de água
+- 4 g (1/2 sachê) de fermento biológico seco
+- 7 g (1/2 colher de sopa) de sal
+
+Modo de preparo
+
+#. Em uma tigela grande, adicione 360 gramas de farinha de trigo. Isso equivale a aproximadamente 3 xícaras. Use qualquer farinha de trigo que você encontrar no mercado, só não pode ser aquelas que já vem com fermento. Aqui no canal tem um vídeo onde eu indico as marcas de farinha que mais eu utilizo
+#. Nessa receita vamos usar o fermento biológico seco instantâneo, que vem em um sachê de 10 g. Se você só tiver o fermento biológico fresco, aquele pastoso vendido em tablete, multiplique a quantidade de fermento por 3
+#. Precisamos de 4 g de fermento biológico seco. Mesmo usando uma balança de precisão, é difícil pesar tão pouca quantidade. Então a gente faz o seguinte: o sachê de fermento tem 10 g, despeje toda quantidade em um pires e faça a divisão de forma visual. 4 g seriam um pouco menos da metade do pacote
+#. De sal são 7 gramas. Isso dá aproximadamente meia colher de sopa
+#. Vamos adicionar o fermento e o sal na tigela. O fermento de um lado e o sal de outro. Neste momento é interessante não deixar esses dois ingredientes em contato direto para que o fermento não perca sua força
+#. Misture bem os ingredientes secos e aproveite para abrir um buraco no meio da farinha
+#. Acrescente a água, mas não coloque tudo, reserve um pouco no copo. Cada marca de farinha possui uma capacidade diferente de absorção. Nas primeiras tentativas, é melhor deixar a massa mais dura do que mole, pois podemos fazer a correção antes de começar a sova, conforme você vai ver logo mais
+#. Comece misturando com uma colher e depois use as mãos. Tente sujar apenas uma das mãos, a outra fica limpa para segurar a tigela. Aproveite toda farinha que ficar grudada nas laterais
+#. Agora vamos colocar a massa na bancada. Antes de começar a sovar, mas já com todos os ingredientes bem incorporados, sinta a consistência da massa
+#. Aqui, o segredo é você tentar usar o máximo de água que conseguir. Quanto mais água, mais leve vai ficar o miolo do pão. O problema é que se você ultrapassa o limite de água que a farinha é capaz de absorver, a massa vai ficar grudenta e difícil de manipular. Então, nas primeiras vezes, não use muita água pode deixar a massa um pouco mais dura
+#. Eu adiciono a água bem aos poucos, coloco uma ou duas tampinhas de garrafa de cada vez, misturo e verifico novamente a consistência
+#. Para finalizar, vamos modelar uma bola, cobrir e deixar descansando por 10 minutos antes de começar a sovar Durante essa pausa a farinha vai absorver melhor a água e a sova ficará mais fácil
+#. Para esse tipo de massa mais firme, vamos usar o método de sova clássico: Segure uma ponta com uma das mãos e empurre a massa sobre a bancada utilizando a base da palma da outra mão
+#. Não precisa colocar força e nem rasgar a massa. Dobre ou enrole a massa sobre si mesma, de volta ao ponto inicial
+#. Agora é só virar em 90º com a emenda para cima e repetir o movimento. A sova deve durar aproximadamente 10 minutos
+#. Após esse período, é importante que a massa esteja bem lisa e elástica. Se sentir necessidade, sove por mais 5 minutos
+#. Coloque a parte lisa para cima, modele uma bola usando as duas mãos e volte a massa para a tigela
+#. Cubra novamente com um pano e deixe descansar por cerca de 1 hora até dobrar de tamanho (se estiver calor é mais rápido)
+#. Enquanto a massa descansa, pegue uma assadeira e unte com um pouco de manteiga ou óleo para não grudar
+#. Nesta primeira fermentação, a massa deve crescer, mas não de forma exagerada. Se crescer demais, vai perder estrutura, o pão vai ficar achatado e não vai dourar
+#. Use a ponta dos dedos para descolar a massa da tigela, sempre com bastante delicadeza
+#. Coloque a massa sobre a bancada, com a parte mais lisa virada para baixo
+#. Se a massa estiver grudando, pode polvilhar um pouco de farinha na bancada.
+#. Amasse um pouco com a ponta dos dedos, sem colocar muita força, até formar um retângulo
+#. Vamos começar a modelagem. Dobre ligeiramente a base da massa para dentro e dobre as duas laterais em direção ao centro, formando um triângulo
+#. Comece a enrolar a massa a partir da ponta do triângulo. Enrole e pressione a massa levemente com a ponta dos dedos
+#. Quando estiver chegando perto da base, utilize os polegares para pressionar a massa sobre a bancada
+#. Mantenha a emenda da massa virada para baixo
+#. Tente utilize as duas mãos e arrastar suavemente a massa sobre a bancada. Isso vai criar uma tensão na superfície e vai ajudar a formar a pestana do pão, aquela parte mais saliente da crosta
+#. Coloque a massa modelada sobre a assadeira untada para aguardar a segunda fermentação
+#. Cubra e deixe descansar por mais 30 minutos
+#. Já pode ligar o forno em 250ºC, pois o preaquecimento também costuma demorar de 20 a 30 minutos.
+#. Para assar esse tipo de pão precisamos de bastante calor, então não tenha medo de usar a máxima temperatura que o seu forno consegue atingir. Não se preocupe, os equipamentos doméstico geralmente não passam de 200ºC, mesmo o termostato indicado mais do que isso
+#. A gente vai precisar de calor apenas na parte de baixo. Se o seu forno tem uma resistência superior, geralmente chamada de gratinador ou função grill, mantenha ela desligada por enquanto.
+#. Precisamos também injetar vapor de água dentro do forno nos minutos iniciais. E como a gente faz isso no forno doméstico? Eu vou ensinar dois métodos:
+#. O primeiro é o mais simples, usamos um borrifador para espalhar água dentro do forno
+#. No segundo método, vamos precisar de 1 ou 2 panos e uma forma de pão ou bolo inglês. Menos de 5 minutos antes de começar a assar o pão, enrole dois panos e coloque dentro da forma. Despeje água fervendo sobre eles e coloque dentro do forno, na parte mais inferior
+#. Use pelo menos um desses métodos para gerar vapor dentro do seu forno. De preferência, use os dois ao mesmo tempo, como nós vamos fazer aqui
+#. Após o descanso, o pão está pronto para entrar no forno
+#. Mas antes é necessário fazer um corte na sua superfície para a crosta não rachar enquanto estiver assando. Não precisa de uma lâmina de padeiro, pode improvisar usando uma faca de serra
+#. Faça um corte de uma ponta a outra do pão. Tente fazer um único movimento, formando uma linha levemente curvada para um dos lados, com cerca de 0,5 centímetros de espessura
+#. Abra rapidamente o forno, coloque a assadeira e borrife um pouco de água
+#. Após 15 a 20 minutos, caso você tenha utilizado o método com os panos enrolados, retire a forma de dentro do forno para cortar o vapor
+#. Agora vamos deixar o pão no forno por mais 20 a 30 minutos até dourar bem. No total serão aproximadamente 50 minutos de forno
+#. Se o pão não dourar neste período e o seu forno tiver a função gratinar ou grill, ligue por 5 minutos, reduzindo a temperatura de 250 para 210ºC
+#. Neste momento o cheiro de pão quentinho já vai ter se espalhado por toda casa
+#. Mas antes de comer, ainda precisamos esperar no mínimo 30 minutos. Eu sei que é difícil esperar, mas se cortar o pão agora o miolo vai ficar todo empelotado.
+#. Coloque o pão para resfriar sobre uma grade de resfriamento, pode usar uma boca de fogão desligada, por exemplo
+#. O pão fica com uma crosta crocante e um miolo bem macio
+
+Pao Azimo
+-----------
+- 240 g de trigo
+- 1 colher pequena de sal
+- 2 colheres de azeite
+- 1/4 xicara de agua morna
+
+Misture os ingredientes. Nao tem fermento. Nao precisa sovar. Corte a massa misturada em 8 pedacos, como pizza. Deixe os pedacos em bolinhas e numa superficie com farinha, passe o espremedor de macarrao para fazer um disco do tamanho da tua frigideira. Com a frigideira quente, deixe 2 minutos de cada lado. Ao terminar, deixe as massas embrulhadas num pano para nao ressecar.
+
+
+Recheio para o pao azimo
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+- 450g de carne moida
+- temperos em folhas a gosto (coentro, cebolinha, etc) 
+- temperos em po a gosto (sal, pimenta do reino, etc)
+
+Misture os temperos na carne muita. Espalhe e amasse por todo o disco do pao azimo, de 1 a 2 cm de altura. Leve na frigideira para cozinhar o lado da carne moida. Se carne tiver gordura, nao precisa de azeite.
+
+Quando carne moida estiver cozida, adicione queijo e salada a gosto.
+
+Pao da Mama
+---------------
+Ingredientes
+
+- 1 batata doce (ou batata comum) cozida e amassada (opcional)
+- 2 xicaras de trigo
+- 1 pacote de fermento 
+- 2 colheres de oleo
+- 1 colher pequena de sal
+- graos a gosto
+
+Coloque 2 colheres de trigo, o pacote de fermeto e agua *morna* ate' engrossar. Reserve por 15 min.
+
+Coloque 1.5 xicara de trigo, batata, e os outros ingredientes. O restante do trigo vai aos poucos. Amasse bem. Se a batata for grande, nao precisa adicionar agua. Se grudar muito, adicione farinha. Depois de uniforme, se ainda grudar, adicione bem pouco de azeite. 
+
+Deixe num recipiente *fechado* ate' dobrar de altura (~1h). Amasse bem mais uma vez e deixe repousar num recipiente para o forno untado (~1h).
+
+Leve ao forno quente (180.C) por ~40 min.
 
 
 Bolos e doces
@@ -1948,6 +2233,18 @@ Para cobrir, amasse pequenas quantidades de farofa com as mãos e disponha sobre
 Leve ao forno para assar por cerca de 40 minutos ou até o bolo crescer e a farofa dourar. Atenção: nessa receita o teste do palito não funciona, pois pode sair molhado por conta da banana. Retire a cuca do forno e deixe esfriar completamente antes de servir – a farofa fica mais crocante depois de fria.
 
 https://panelinha.com.br/receita/cuca-de-banana
+
+
+Chocolate Fudge
+----------------
+- 200g de chocolate derretido
+- 140g de pasta de amendoim
+- nozes picadas
+- pedrinhas de sal a gosto
+
+misture o chocolate e o amendoim numa travessa com papel manteiga. Salpique as nozes (e o sal) e leve a geladeira (ou freezer) ate' a consistencia desejada.
+
+
 
 Churrasco
 ============

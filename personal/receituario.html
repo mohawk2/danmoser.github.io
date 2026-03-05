@@ -7,277 +7,576 @@
 <title>Receitas</title>
 <style type="text/css">
 
-/*
-:Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
-:Copyright: This stylesheet has been placed in the public domain.
+/* Minimal style sheet for the HTML output of Docutils.                    */
+/*                                                                         */
+/* :Author: Günter Milde, based on html4css1.css by David Goodger          */
+/* :Id: $Id: minimal.css 9545 2024-02-17 10:37:56Z milde $                                                               */
+/* :Copyright: © 2015, 2021 Günter Milde.                                  */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*                                                                         */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
 
-Default cascading style sheet for the HTML output of Docutils.
-Despite the name, some widely supported CSS2 features are used.
+/* This CSS3 stylesheet defines rules for Docutils elements without        */
+/* HTML equivalent. It is required to make the document semantics visible. */
+/*                                                                         */
+/* .. _validates: http://jigsaw.w3.org/css-validator/validator$link        */
 
-See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
-customize this style sheet.
-*/
-
-/* used to remove borders from tables and images */
-.borderless, table.borderless td, table.borderless th {
-  border: 0 }
-
-table.borderless td, table.borderless th {
-  /* Override padding for "table.docutils td" with "! important".
-     The right padding separates the table cells. */
-  padding: 0 0.5em 0 0 ! important }
-
-.first {
-  /* Override more specific margin styles with "! important". */
-  margin-top: 0 ! important }
-
-.last, .with-subtitle {
-  margin-bottom: 0 ! important }
-
-.hidden {
-  display: none }
-
-.subscript {
-  vertical-align: sub;
-  font-size: smaller }
-
-.superscript {
-  vertical-align: super;
-  font-size: smaller }
-
+/* titles */
+p.topic-title,
+p.admonition-title,
+p.system-message-title {
+  font-weight: bold;
+}
+p.sidebar-title,
+p.rubric {
+  font-weight: bold;
+  font-size: larger;
+}
+p.rubric {
+  color: maroon;
+}
+p.subtitle,
+p.section-subtitle,
+p.sidebar-subtitle {
+  font-weight: bold;
+  margin-top: -0.5em;
+}
+h1 + p.subtitle {
+  font-size: 1.6em;
+}
 a.toc-backref {
-  text-decoration: none ;
-  color: black }
+  color: inherit;
+  text-decoration: none;
+}
 
-blockquote.epigraph {
-  margin: 2em 5em ; }
+/* Warnings, Errors */
+.system-messages h2,
+.system-message-title,
+pre.problematic,
+span.problematic {
+  color: red;
+}
 
-dl.docutils dd {
-  margin-bottom: 0.5em }
+/* Inline Literals */
+.docutils.literal {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+/* do not wrap at hyphens and similar: */
+.literal > span.pre { white-space: nowrap; }
 
-object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+/* keep line-breaks (\n) visible */
+.pre-wrap { white-space: pre-wrap; }
+
+/* Lists */
+
+/* compact and simple lists: no margin between items */
+.simple  li, .simple  ul, .simple  ol,
+.compact li, .compact ul, .compact ol,
+.simple  > li p, dl.simple  > dd,
+.compact > li p, dl.compact > dd {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* Nested Paragraphs */
+p:first-child { margin-top: 0; }
+p:last-child { margin-bottom: 0; }
+details > p:last-child { margin-bottom: 1em; }
+
+/* Table of Contents */
+.contents ul.auto-toc { /* section numbers present */
+  list-style-type: none;
+}
+
+/* Enumerated Lists */
+ol.arabic     { list-style: decimal }
+ol.loweralpha { list-style: lower-alpha }
+ol.upperalpha { list-style: upper-alpha }
+ol.lowerroman { list-style: lower-roman }
+ol.upperroman { list-style: upper-roman }
+
+/* Definition Lists and Derivatives */
+dt .classifier { font-style: italic }
+dt .classifier:before {
+  font-style: normal;
+  margin: 0.5em;
+  content: ":";
+}
+/* Field Lists and similar */
+/* bold field name, content starts on the same line */
+dl.field-list,
+dl.option-list,
+dl.docinfo {
+  display: flow-root;
+}
+dl.field-list > dt,
+dl.option-list > dt,
+dl.docinfo > dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.25em;
+}
+/* Offset for field content (corresponds to the --field-name-limit option) */
+dl.field-list > dd,
+dl.option-list > dd,
+dl.docinfo > dd {
+  margin-left:  9em; /* ca. 14 chars in the test examples, fit all Docinfo fields */
+}
+/* start nested lists on new line */
+dd > dl:first-child,
+dd > ul:first-child,
+dd > ol:first-child {
+  clear: left;
+}
+/* start field-body on a new line after long field names */
+dl.field-list > dd > *:first-child,
+dl.option-list > dd > *:first-child
+{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+
+/* Bibliographic Fields (docinfo) */
+dl.docinfo pre.address {
+  font: inherit;
+  margin: 0.5em 0;
+}
+dl.docinfo > dd.authors > p { margin: 0; }
+
+/* Option Lists */
+dl.option-list > dt { font-weight: normal; }
+span.option { white-space: nowrap; }
+
+/* Footnotes and Citations  */
+
+.footnote, .citation { margin: 1em 0; } /* default paragraph skip (Firefox) */
+/* hanging indent */
+.citation { padding-left: 2em; }
+.footnote { padding-left: 1.7em; }
+.footnote.superscript { padding-left: 1.0em; }
+.citation > .label { margin-left: -2em; }
+.footnote > .label { margin-left: -1.7em; }
+.footnote.superscript > .label { margin-left: -1.0em; }
+
+.footnote > .label + *,
+.citation > .label + * {
+  display: inline-block;
+  margin-top: 0;
+  vertical-align: top;
+}
+.footnote > .backrefs + *,
+.citation > .backrefs + * {
+  margin-top: 0;
+}
+.footnote > .label + p, .footnote > .backrefs + p,
+.citation > .label + p, .citation > .backrefs + p {
+  display: inline;
+  vertical-align: inherit;
+}
+
+.backrefs { user-select: none; }
+.backrefs > a { font-style: italic; }
+
+/* superscript footnotes */
+a[role="doc-noteref"].superscript,
+.footnote.superscript > .label,
+.footnote.superscript > .backrefs {
+  vertical-align: super;
+  font-size: smaller;
+  line-height: 1;
+}
+a[role="doc-noteref"].superscript > .fn-bracket,
+.footnote.superscript > .label > .fn-bracket {
+  /* hide brackets in display but leave for copy/paste */
+  display: inline-block;
+  width: 0;
   overflow: hidden;
 }
-
-/* Uncomment (and remove this text!) to get bold-faced definition list terms
-dl.docutils dt {
-  font-weight: bold }
-*/
-
-div.abstract {
-  margin: 2em 5em }
-
-div.abstract p.topic-title {
-  font-weight: bold ;
-  text-align: center }
-
-div.admonition, div.attention, div.caution, div.danger, div.error,
-div.hint, div.important, div.note, div.tip, div.warning {
-  margin: 2em ;
-  border: medium outset ;
-  padding: 1em }
-
-div.admonition p.admonition-title, div.hint p.admonition-title,
-div.important p.admonition-title, div.note p.admonition-title,
-div.tip p.admonition-title {
-  font-weight: bold ;
-  font-family: sans-serif }
-
-div.attention p.admonition-title, div.caution p.admonition-title,
-div.danger p.admonition-title, div.error p.admonition-title,
-div.warning p.admonition-title, .code .error {
-  color: red ;
-  font-weight: bold ;
-  font-family: sans-serif }
-
-/* Uncomment (and remove this text!) to get reduced vertical space in
-   compound paragraphs.
-div.compound .compound-first, div.compound .compound-middle {
-  margin-bottom: 0.5em }
-
-div.compound .compound-last, div.compound .compound-middle {
-  margin-top: 0.5em }
-*/
-
-div.dedication {
-  margin: 2em 5em ;
-  text-align: center ;
-  font-style: italic }
-
-div.dedication p.topic-title {
-  font-weight: bold ;
-  font-style: normal }
-
-div.figure {
-  margin-left: 2em ;
-  margin-right: 2em }
-
-div.footer, div.header {
-  clear: both;
-  font-size: smaller }
-
-div.line-block {
-  display: block ;
-  margin-top: 1em ;
-  margin-bottom: 1em }
-
-div.line-block div.line-block {
-  margin-top: 0 ;
-  margin-bottom: 0 ;
-  margin-left: 1.5em }
-
-div.sidebar {
-  margin: 0 0 0.5em 1em ;
-  border: medium outset ;
-  padding: 1em ;
-  background-color: #ffffee ;
-  width: 40% ;
-  float: right ;
-  clear: right }
-
-div.sidebar p.rubric {
-  font-family: sans-serif ;
-  font-size: medium }
-
-div.system-messages {
-  margin: 5em }
-
-div.system-messages h1 {
-  color: red }
-
-div.system-message {
-  border: medium outset ;
-  padding: 1em }
-
-div.system-message p.system-message-title {
-  color: red ;
-  font-weight: bold }
-
-div.topic {
-  margin: 2em }
-
-h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
-h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
-  margin-top: 0.4em }
-
-h1.title {
-  text-align: center }
-
-h2.subtitle {
-  text-align: center }
-
-hr.docutils {
-  width: 75% }
-
-img.align-left, .figure.align-left, object.align-left, table.align-left {
-  clear: left ;
-  float: left ;
-  margin-right: 1em }
-
-img.align-right, .figure.align-right, object.align-right, table.align-right {
-  clear: right ;
-  float: right ;
-  margin-left: 1em }
-
-img.align-center, .figure.align-center, object.align-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+[role="doc-noteref"].superscript + [role="doc-noteref"].superscript {
+  padding-left: 0.15em; /* separate consecutive footnote references */
+  /* TODO: unfortunately, "+" also selects with text between the references. */
 }
 
-table.align-center {
-  margin-left: auto;
+/* Alignment */
+.align-left   {
+  text-align: left;
   margin-right: auto;
 }
-
-.align-left {
-  text-align: left }
-
 .align-center {
-  clear: both ;
-  text-align: center }
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.align-right  {
+  text-align: right;
+  margin-left: auto;
+}
+.align-top    { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
 
-.align-right {
-  text-align: right }
+/* reset inner alignment in figures and tables */
+figure.align-left, figure.align-right,
+table.align-left, table.align-center, table.align-right {
+  text-align: inherit;
+}
 
-/* reset inner alignment in figures */
-div.align-right {
-  text-align: inherit }
+/* Text Blocks */
+.topic { margin: 1em 2em; }
+.sidebar,
+.admonition,
+.system-message {
+  margin: 1em 2em;
+  border: thin solid;
+  padding: 0.5em 1em;
+}
+div.line-block { display: block; }
+div.line-block div.line-block, pre { margin-left: 2em; }
 
-/* div.align-center * { */
-/*   text-align: left } */
+/* Code line numbers: dropped when copying text from the page */
+pre.code .ln { display: none; }
+pre.code code:before {
+  content: attr(data-lineno); /* …, none) fallback not supported by any browser */
+  color: gray;
+}
 
-.align-top    {
-  vertical-align: top }
+/* Tables */
+table {
+  border-collapse: collapse;
+}
+td, th {
+  border: thin solid silver;
+  padding: 0 1ex;
+}
+.borderless td, .borderless th {
+  border: 0;
+  padding: 0;
+  padding-right: 0.5em /* separate table cells */
+}
 
-.align-middle {
-  vertical-align: middle }
+table > caption, figcaption {
+  text-align: left;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+table.captionbelow {
+  caption-side: bottom;
+}
 
-.align-bottom {
-  vertical-align: bottom }
+/* MathML (see "math.css" for --math-output=HTML) */
+math .boldsymbol { font-weight: bold; }
+math.boxed, math .boxed {padding: 0.25em; border: thin solid; }
+/* style table similar to AMS "align" or "aligned" environment: */
+mtable.cases > mtr > mtd { text-align: left; }
+mtable.ams-align > mtr > mtd { padding-left: 0; padding-right: 0; }
+mtable.ams-align > mtr > mtd:nth-child(2n) { text-align: left; }
+mtable.ams-align > mtr > mtd:nth-child(2n+1) { text-align: right; }
+mtable.ams-align > mtr > mtd:nth-child(2n+3) { padding-left: 2em; }
+.mathscr mi, mi.mathscr {
+  font-family: STIX, XITSMathJax_Script, rsfs10,
+               "Asana Math", Garamond, cursive;
+}
 
-ol.simple, ul.simple {
-  margin-bottom: 1em }
+/* Document Header and Footer */
+header { border-bottom: 1px solid black; }
+footer { border-top: 1px solid black; }
 
-ol.arabic {
-  list-style: decimal }
+/* Images are block-level by default in Docutils */
+/* New HTML5 block elements: set display for older browsers */
+img, svg, header, footer, main, aside, nav, section, figure, video, details {
+  display: block;
+}
+svg { width: auto; height: auto; }  /* enable scaling of SVG images */
+/* inline images */
+p img, p svg, p video { display: inline; }
 
-ol.loweralpha {
-  list-style: lower-alpha }
+</style>
+<style type="text/css">
 
-ol.upperalpha {
-  list-style: upper-alpha }
+/* CSS31_ style sheet for the output of Docutils HTML writers.             */
+/* Rules for easy reading and pre-defined style variants.                  */
+/*                                                                         */
+/* :Author: Günter Milde, based on html4css1.css by David Goodger          */
+/* :Id: $Id: plain.css 9615 2024-04-06 13:28:15Z milde $                                                               */
+/* :Copyright: © 2015 Günter Milde.                                        */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*                                                                         */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
+/* .. _CSS3: https://www.w3.org/Style/CSS/                                 */
 
-ol.lowerroman {
-  list-style: lower-roman }
 
-ol.upperroman {
-  list-style: upper-roman }
+/* Document Structure */
+/* ****************** */
 
-p.attribution {
-  text-align: right ;
-  margin-left: 50% }
+/* "page layout" */
+body {
+  margin: 0;
+  background-color: #dbdbdb;
+  --field-indent: 9em; /* default indent of fields in field lists */
+}
+main, footer, header {
+  line-height:1.6;
+  /* avoid long lines --> better reading */
+  /* optimum is 45…75 characters/line <http://webtypography.net/2.1.2> */
+  /* OTOH: lines should not be too short because of missing hyphenation, */
+  max-width: 50rem;
+  padding: 1px 2%; /* 1px on top avoids grey bar above title (mozilla) */
+  margin: auto;
+}
+main {
+  counter-reset: table figure;
+  background-color: white;
+}
+footer, header {
+  font-size: smaller;
+  padding: 0.5em 2%;
+  border: none;
+}
 
-p.caption {
-  font-style: italic }
+/* Table of Contents */
+ul.auto-toc > li > p {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+nav.contents ul {
+  padding-left: 1em;
+}
+main > nav.contents ul ul ul ul:not(.auto-toc) {
+  list-style-type: '\2B29\ ';
+}
+main > nav.contents ul ul ul ul ul:not(.auto-toc) {
+  list-style-type: '\2B1D\ ';
+}
 
-p.credits {
-  font-style: italic ;
-  font-size: smaller }
+/* Transitions */
+hr.docutils {
+  width: 80%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  clear: both;
+}
 
-p.label {
-  white-space: nowrap }
+/* Paragraphs */
 
-p.rubric {
-  font-weight: bold ;
-  font-size: larger ;
-  color: maroon ;
-  text-align: center }
+/* vertical space (parskip) */
+p, ol, ul, dl, li,
+.footnote, .citation,
+div > math,
+table {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
 
-p.sidebar-title {
-  font-family: sans-serif ;
-  font-weight: bold ;
-  font-size: larger }
+h1, h2, h3, h4, h5, h6,
+dd, details > p:last-child {
+  margin-bottom: 0.5em;
+}
 
-p.sidebar-subtitle {
-  font-family: sans-serif ;
-  font-weight: bold }
+/* Lists */
+/* ===== */
 
-p.topic-title {
-  font-weight: bold }
+/* Definition Lists */
+/* Indent lists nested in definition lists */
+dd > ul:only-child, dd > ol:only-child { padding-left: 1em; }
 
-pre.address {
-  margin-bottom: 0 ;
-  margin-top: 0 ;
-  font: inherit }
+/* Description Lists */
+/* styled like in most dictionaries, encyclopedias etc. */
+dl.description {
+  display: flow-root;
+}
+dl.description > dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.3em;
+}
+dl.description > dd:after {
+  display: table;
+  content: "";
+  clear: left; /* clearfix for empty descriptions */
+}
 
-pre.literal-block, pre.doctest-block, pre.math, pre.code {
-  margin-left: 2em ;
-  margin-right: 2em }
+/* Field Lists */
 
-pre.code .ln { color: gray; } /* line numbers */
+dl.field-list > dd,
+dl.docinfo > dd {
+  margin-left: var(--field-indent); /* adapted in media queries or HTML */
+}
+
+/* example for custom field-name width */
+dl.field-list.narrow > dd {
+  --field-indent: 5em;
+}
+/* run-in: start field-body on same line after long field names */
+dl.field-list.run-in > dd p {
+  display: block;
+}
+
+/* Bibliographic Fields */
+
+/* generally, bibliographic fields use dl.docinfo */
+/* but dedication and abstract are placed into divs */
+div.abstract p.topic-title {
+  text-align: center;
+}
+div.dedication {
+  margin: 2em 5em;
+  text-align: center;
+  font-style: italic;
+}
+div.dedication p.topic-title {
+  font-style: normal;
+}
+
+/* disclosures */
+details { padding-left: 1em; }
+summary { margin-left: -1em; }
+
+/* Text Blocks */
+/* =========== */
+
+/* Literal Blocks */
+pre.literal-block, pre.doctest-block,
+pre.math, pre.code {
+  font-family: monospace;
+}
+
+/* Block Quotes and Topics */
+bockquote { margin: 1em 2em; }
+blockquote p.attribution,
+.topic p.attribution {
+  text-align: right;
+  margin-left: 20%;
+}
+
+/* Tables */
+/* ====== */
+
+/* th { vertical-align: bottom; } */
+
+table tr { text-align: left; }
+
+/* "booktabs" style (no vertical lines) */
+table.booktabs {
+  border: 0;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.booktabs * {
+  border: 0;
+}
+table.booktabs th {
+  border-bottom: thin solid;
+}
+
+/* numbered tables (counter defined in div.document) */
+table.numbered > caption:before {
+  counter-increment: table;
+  content: "Table " counter(table) ": ";
+  font-weight: bold;
+}
+
+/* Explicit Markup Blocks */
+/* ====================== */
+
+/* Footnotes and Citations */
+/* ----------------------- */
+
+/* line on the left */
+.footnote-list {
+  border-left: solid thin;
+  padding-left: 0.25em;
+}
+
+/* Directives */
+/* ---------- */
+
+/* Body Elements */
+/* ~~~~~~~~~~~~~ */
+
+/* Images and Figures */
+
+/* let content flow to the side of aligned images and figures */
+figure.align-left,
+img.align-left,
+svg.align-left,
+video.align-left,
+div.align-left,
+object.align-left {
+  clear: left;
+  float: left;
+  margin-right: 1em;
+}
+figure.align-right,
+img.align-right,
+svg.align-right,
+video.align-right,
+div.align-right,
+object.align-right {
+  clear: right;
+  float: right;
+  margin-left: 1em;
+}
+/* Stop floating sidebars, images and figures */
+h1, h2, h3, h4, footer, header { clear: both; }
+
+/* Numbered figures */
+figure.numbered > figcaption > p:before {
+  counter-increment: figure;
+  content: "Figure " counter(figure) ": ";
+  font-weight: bold;
+}
+
+/* Admonitions and System Messages */
+.caution p.admonition-title,
+.attention p.admonition-title,
+.danger p.admonition-title,
+.error p.admonition-title,
+.warning p.admonition-title,
+div.error {
+  color: red;
+}
+
+/* Sidebar */
+/* Move right. In a layout with fixed margins, */
+/* it can be moved into the margin.            */
+aside.sidebar {
+  width: 30%;
+  max-width: 26em;
+  float: right;
+  clear: right;
+  margin-left: 1em;
+  margin-right: -1%;
+  background-color: #fffffa;
+}
+
+
+/* Code */
+pre.code { padding: 0.7ex }
 pre.code, code { background-color: #eeeeee }
+/* basic highlighting: for a complete scheme, see */
+/* https://docutils.sourceforge.io/sandbox/stylesheets/ */
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
 pre.code .literal.string, code .literal.string { color: #0C5404 }
@@ -285,82 +584,33 @@ pre.code .name.builtin, code .name.builtin { color: #352B84 }
 pre.code .deleted, code .deleted { background-color: #DEB0A1}
 pre.code .inserted, code .inserted { background-color: #A3D289}
 
-span.classifier {
-  font-family: sans-serif ;
-  font-style: oblique }
 
-span.classifier-delimiter {
-  font-family: sans-serif ;
-  font-weight: bold }
+/* Epigraph           */
+/* Highlights         */
+/* Pull-Quote         */
+/* Compound Paragraph */
+/* Container          */
 
-span.interpreted {
-  font-family: sans-serif }
+/* Inline Markup */
+/* ============= */
 
-span.option {
-  white-space: nowrap }
+sup, sub { line-height: 0.8; } /* do not add leading for lines with sup/sub */
 
-span.pre {
-  white-space: pre }
+/* Inline Literals                                          */
+/* possible values: normal, nowrap, pre, pre-wrap, pre-line */
+/*   span.docutils.literal { white-space: pre-wrap; }       */
 
-span.problematic, pre.problematic {
-  color: red }
+/* Hyperlink References */
+a { text-decoration: none; }
 
-span.section-subtitle {
-  /* font-size relative to parent (h1..h6 element) */
-  font-size: 80% }
-
-table.citation {
-  border-left: solid 1px gray;
-  margin-left: 1px }
-
-table.docinfo {
-  margin: 2em 4em }
-
-table.docutils {
-  margin-top: 0.5em ;
-  margin-bottom: 0.5em }
-
-table.footnote {
-  border-left: solid 1px black;
-  margin-left: 1px }
-
-table.docutils td, table.docutils th,
-table.docinfo td, table.docinfo th {
-  padding-left: 0.5em ;
-  padding-right: 0.5em ;
-  vertical-align: top }
-
-table.docutils th.field-name, table.docinfo th.docinfo-name {
-  font-weight: bold ;
-  text-align: left ;
-  white-space: nowrap ;
-  padding-left: 0 }
-
-/* "booktabs" style (no vertical lines) */
-table.docutils.booktabs {
-  border: 0px;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-collapse: collapse;
-}
-table.docutils.booktabs * {
-  border: 0px;
-}
-table.docutils.booktabs th {
-  border-bottom: thin solid;
-  text-align: left;
-}
-
-h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
-h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
-  font-size: 100% }
-
-ul.auto-toc {
-  list-style-type: none }
-
-</style>
-<style type="text/css">
-
+/* External Targets       */
+/*   span.target.external */
+/* Internal Targets       */
+/*   span.target.internal */
+/* Footnote References    */
+/*   a[role="doc-noteref"] */
+/* Citation References    */
+/*   a.citation-reference */
 
 </style>
 </head>
@@ -371,167 +621,275 @@ ul.auto-toc {
 <nav class="contents" id="indice" role="doc-toc">
 <p class="topic-title"><a class="reference internal" href="#top">Índice</a></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#pratos" id="toc-entry-1">Pratos</a></p>
+<li><p><a class="reference internal" href="#sopas" id="toc-entry-1">Sopas</a></p>
 <ul>
-<li><p><a class="reference internal" href="#arroz" id="toc-entry-2">Arroz</a></p></li>
-<li><p><a class="reference internal" href="#batata-com-brocolis-e-molho-branco" id="toc-entry-3">Batata com brocolis e molho branco</a></p></li>
-<li><p><a class="reference internal" href="#couve-a-mineira" id="toc-entry-4">Couve à mineira</a></p></li>
-<li><p><a class="reference internal" href="#empadao" id="toc-entry-5">Empadão</a></p></li>
-<li><p><a class="reference internal" href="#feijao" id="toc-entry-6">Feijão</a></p></li>
-<li><p><a class="reference internal" href="#quiche-de-queijo" id="toc-entry-7">Quiche de queijo</a></p></li>
-<li><p><a class="reference internal" href="#refogado" id="toc-entry-8">Refogado</a></p></li>
-<li><p><a class="reference internal" href="#salada-andaluza" id="toc-entry-9">Salada andaluza</a></p></li>
-<li><p><a class="reference internal" href="#soja-com-cenoura" id="toc-entry-10">Soja com cenoura</a></p></li>
-<li><p><a class="reference internal" href="#torta-de-atum" id="toc-entry-11">Torta de atum</a></p></li>
-<li><p><a class="reference internal" href="#torta-salgada" id="toc-entry-12">Torta Salgada</a></p></li>
-<li><p><a class="reference internal" href="#strogonoff" id="toc-entry-13">Strogonoff</a></p></li>
-<li><p><a class="reference internal" href="#file-de-peixe-01" id="toc-entry-14">Filé de Peixe (01)</a></p></li>
-<li><p><a class="reference internal" href="#file-de-peixe-02" id="toc-entry-15">Filé de peixe (02)</a></p></li>
-<li><p><a class="reference internal" href="#moqueca" id="toc-entry-16">Moqueca</a></p></li>
-<li><p><a class="reference internal" href="#eng-eggplant-antipasto" id="toc-entry-17">[ENG] Eggplant antipasto</a></p></li>
-<li><p><a class="reference internal" href="#eng-moqueca-brazilian-seafood-stew" id="toc-entry-18">[ENG] Moqueca (Brazilian seafood stew)</a></p></li>
-<li><p><a class="reference internal" href="#zucchini" id="toc-entry-19">Zucchini</a></p></li>
-<li><p><a class="reference internal" href="#assado-do-bem-nozes-aveia-grao-de-bico-batata-doce" id="toc-entry-20">Assado do bem (nozes, aveia, grão de bico, batata doce)</a></p></li>
-<li><p><a class="reference internal" href="#quibe-de-trigo" id="toc-entry-21">Quibe de trigo</a></p></li>
-<li><p><a class="reference internal" href="#eng-lentil-burguers" id="toc-entry-22">[ENG] Lentil burguers</a></p></li>
-<li><p><a class="reference internal" href="#eng-chicken-marsala" id="toc-entry-23">[ENG] Chicken Marsala</a></p></li>
-<li><p><a class="reference internal" href="#eng-simple-chicken-curry-chicken-masala" id="toc-entry-24">[ENG] Simple chicken curry (&quot;Chicken masala&quot;)</a></p></li>
-<li><p><a class="reference internal" href="#coxinha-de-batata" id="toc-entry-25">Coxinha de batata</a></p></li>
-<li><p><a class="reference internal" href="#torta-de-zucchini-simples" id="toc-entry-26">Torta de Zucchini simples</a></p></li>
+<li><p><a class="reference internal" href="#miso-soup" id="toc-entry-2">Miso Soup</a></p></li>
+<li><p><a class="reference internal" href="#chickpeas-soup" id="toc-entry-3">Chickpeas soup</a></p></li>
+<li><p><a class="reference internal" href="#potato-soup" id="toc-entry-4">Potato Soup</a></p></li>
+<li><p><a class="reference internal" href="#lemony-lentil-and-spinach-soup" id="toc-entry-5">Lemony Lentil and Spinach Soup</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#pates-eng-dips" id="toc-entry-27">Pates ([ENG] Dips)</a></p>
+<li><p><a class="reference internal" href="#pratos" id="toc-entry-6">Pratos</a></p>
 <ul>
-<li><p><a class="reference internal" href="#eng-lemon-yogurt-dip" id="toc-entry-28">[ENG] Lemon Yogurt Dip</a></p></li>
-<li><p><a class="reference internal" href="#cenoura" id="toc-entry-29">Cenoura</a></p></li>
+<li><p><a class="reference internal" href="#arroz" id="toc-entry-7">Arroz</a></p></li>
+<li><p><a class="reference internal" href="#batata-com-brocolis-e-molho-branco" id="toc-entry-8">Batata com brocolis e molho branco</a></p></li>
+<li><p><a class="reference internal" href="#couve-a-mineira" id="toc-entry-9">Couve à mineira</a></p></li>
+<li><p><a class="reference internal" href="#empadao" id="toc-entry-10">Empadão</a></p></li>
+<li><p><a class="reference internal" href="#feijao" id="toc-entry-11">Feijão</a></p></li>
+<li><p><a class="reference internal" href="#quiche-de-queijo" id="toc-entry-12">Quiche de queijo</a></p></li>
+<li><p><a class="reference internal" href="#refogado" id="toc-entry-13">Refogado</a></p></li>
+<li><p><a class="reference internal" href="#salada-andaluza" id="toc-entry-14">Salada andaluza</a></p></li>
+<li><p><a class="reference internal" href="#soja-com-cenoura" id="toc-entry-15">Soja com cenoura</a></p></li>
+<li><p><a class="reference internal" href="#torta-de-atum" id="toc-entry-16">Torta de atum</a></p></li>
+<li><p><a class="reference internal" href="#torta-salgada" id="toc-entry-17">Torta Salgada</a></p></li>
+<li><p><a class="reference internal" href="#strogonoff" id="toc-entry-18">Strogonoff</a></p></li>
+<li><p><a class="reference internal" href="#file-de-peixe-01" id="toc-entry-19">Filé de Peixe (01)</a></p></li>
+<li><p><a class="reference internal" href="#file-de-peixe-02" id="toc-entry-20">Filé de peixe (02)</a></p></li>
+<li><p><a class="reference internal" href="#moqueca" id="toc-entry-21">Moqueca</a></p></li>
+<li><p><a class="reference internal" href="#eng-eggplant-antipasto" id="toc-entry-22">[ENG] Eggplant antipasto</a></p></li>
+<li><p><a class="reference internal" href="#eng-moqueca-brazilian-seafood-stew" id="toc-entry-23">[ENG] Moqueca (Brazilian seafood stew)</a></p></li>
+<li><p><a class="reference internal" href="#zucchini" id="toc-entry-24">Zucchini</a></p></li>
+<li><p><a class="reference internal" href="#assado-do-bem-nozes-aveia-grao-de-bico-batata-doce" id="toc-entry-25">Assado do bem (nozes, aveia, grão de bico, batata doce)</a></p></li>
+<li><p><a class="reference internal" href="#quibe-de-trigo" id="toc-entry-26">Quibe de trigo</a></p></li>
+<li><p><a class="reference internal" href="#eng-lentil-burguers" id="toc-entry-27">[ENG] Lentil burguers</a></p></li>
+<li><p><a class="reference internal" href="#eng-chicken-marsala" id="toc-entry-28">[ENG] Chicken Marsala</a></p></li>
+<li><p><a class="reference internal" href="#eng-simple-chicken-curry-chicken-masala" id="toc-entry-29">[ENG] Simple chicken curry (&quot;Chicken masala&quot;)</a></p></li>
+<li><p><a class="reference internal" href="#coxinha-de-batata" id="toc-entry-30">Coxinha de batata</a></p></li>
+<li><p><a class="reference internal" href="#torta-de-zucchini-simples" id="toc-entry-31">Torta de Zucchini simples</a></p></li>
+<li><p><a class="reference internal" href="#maminha-de-colher" id="toc-entry-32">Maminha de colher</a></p></li>
+<li><p><a class="reference internal" href="#chicken-marinade" id="toc-entry-33">Chicken Marinade</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#paes-massas-e-molhos" id="toc-entry-30">Pães, massas e molhos</a></p>
+<li><p><a class="reference internal" href="#pates-eng-dips" id="toc-entry-34">Pates ([ENG] Dips)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pao-e-pizza-01" id="toc-entry-31">Pão e Pizza (01)</a></p></li>
-<li><p><a class="reference internal" href="#pao-e-pizza-02" id="toc-entry-32">Pão e Pizza (02)</a></p></li>
-<li><p><a class="reference internal" href="#eng-bread-03" id="toc-entry-33">[ENG] Bread (03)</a></p></li>
-<li><p><a class="reference internal" href="#pao-sirio" id="toc-entry-34">Pão sírio</a></p></li>
-<li><p><a class="reference internal" href="#pasta-massa-de-macarrao-ou-lasanha" id="toc-entry-35">Pasta (massa de macarrão ou lasanha)</a></p></li>
-<li><p><a class="reference internal" href="#gnocchi" id="toc-entry-36">Gnocchi</a></p></li>
-<li><p><a class="reference internal" href="#macarrao-de-panela-de-pressao" id="toc-entry-37">Macarrão de panela de pressão</a></p></li>
-<li><p><a class="reference internal" href="#peta" id="toc-entry-38">Peta</a></p></li>
-<li><p><a class="reference internal" href="#molho-pesto" id="toc-entry-39">Molho pesto</a></p></li>
-<li><p><a class="reference internal" href="#molho-de-queijo-vegano" id="toc-entry-40">Molho de queijo vegano</a></p></li>
-<li><p><a class="reference internal" href="#eng-cranberry-sauce" id="toc-entry-41">[ENG] Cranberry Sauce</a></p></li>
-<li><p><a class="reference internal" href="#ragu" id="toc-entry-42">Ragú</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-queijo" id="toc-entry-43">Pão de queijo</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-queijo-referencia" id="toc-entry-44">Pão de queijo (referencia)</a></p></li>
-<li><p><a class="reference internal" href="#eng-cheese-balls" id="toc-entry-45">[ENG] Cheese Balls</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-banana" id="toc-entry-46">Pão de banana</a></p></li>
-<li><p><a class="reference internal" href="#panqueca-de-quinoa" id="toc-entry-47">Panqueca de quinoa</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-batata" id="toc-entry-48">Pão de batata</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-batata-doce" id="toc-entry-49">Pao de batata doce</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-aveia" id="toc-entry-50">Pao de aveia</a></p></li>
-<li><p><a class="reference internal" href="#pao-trabalhoso" id="toc-entry-51">Pao &quot;trabalhoso&quot;</a></p></li>
+<li><p><a class="reference internal" href="#eng-lemon-yogurt-dip" id="toc-entry-35">[ENG] Lemon Yogurt Dip</a></p></li>
+<li><p><a class="reference internal" href="#cenoura" id="toc-entry-36">Cenoura</a></p></li>
+<li><p><a class="reference internal" href="#sweet-hot-asian-dipping" id="toc-entry-37">Sweet-Hot Asian Dipping</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#bolos-e-doces" id="toc-entry-52">Bolos e doces</a></p>
+<li><p><a class="reference internal" href="#paes-massas-e-molhos" id="toc-entry-38">Pães, massas e molhos</a></p>
 <ul>
-<li><p><a class="reference internal" href="#bolo-de-cenoura-com-linhaca" id="toc-entry-53">Bolo de cenoura com linhaça</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-cenoura" id="toc-entry-54">Bolo de cenoura</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-cenoura-ou-beterraba-da-dona-elza" id="toc-entry-55">Bolo de cenoura ou beterraba da Dona Elza</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-cenoura-nv1c" id="toc-entry-56">Bolo de cenoura NV1C</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-cenoura-e-aveia" id="toc-entry-57">Bolo de cenoura e aveia</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-banana-e-aveia-com-uvas-passas" id="toc-entry-58">Bolo de banana e aveia com uvas-passas</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-fuba" id="toc-entry-59">Bolo de Fubá</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-chocolate" id="toc-entry-60">Bolo de chocolate</a></p></li>
-<li><p><a class="reference internal" href="#bolo-branco" id="toc-entry-61">Bolo branco</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-aipim" id="toc-entry-62">Bolo de aipim</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-lo" id="toc-entry-63">Pão de ló</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-lo-de-chocolate" id="toc-entry-64">Pão de ló de chocolate</a></p></li>
-<li><p><a class="reference internal" href="#danoninho" id="toc-entry-65">Danoninho</a></p></li>
-<li><p><a class="reference internal" href="#biscoito" id="toc-entry-66">Biscoito</a></p></li>
-<li><p><a class="reference internal" href="#brownies-aux-noisettes" id="toc-entry-67">Brownies aux noisettes</a></p></li>
-<li><p><a class="reference internal" href="#pasta-cigarrete" id="toc-entry-68">Pasta cigarrete</a></p></li>
-<li><p><a class="reference internal" href="#bisquit-joconde" id="toc-entry-69">Bisquit joconde</a></p></li>
-<li><p><a class="reference internal" href="#torta-mousse-de-chocolate" id="toc-entry-70">Torta mousse de chocolate</a></p></li>
-<li><p><a class="reference internal" href="#torta-de-abacaxi-com-coco" id="toc-entry-71">Torta de abacaxi com côco</a></p></li>
-<li><p><a class="reference internal" href="#torta-de-limao" id="toc-entry-72">Torta de limão</a></p></li>
-<li><p><a class="reference internal" href="#torta-de-sorvete" id="toc-entry-73">Torta de Sorvete</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-milho-01" id="toc-entry-74">Bolo de milho (01)</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-milho-02" id="toc-entry-75">Bolo de milho (02)</a></p></li>
-<li><p><a class="reference internal" href="#cacarola-italiana" id="toc-entry-76">Caçarola italiana</a></p></li>
-<li><p><a class="reference internal" href="#pao-de-sto-antonio" id="toc-entry-77">Pão de Sto. Antonio</a></p></li>
-<li><p><a class="reference internal" href="#pudim-4-leites" id="toc-entry-78">Pudim 4 leites</a></p></li>
-<li><p><a class="reference internal" href="#pudim-expresso-de-chocolate" id="toc-entry-79">Pudim expresso de chocolate</a></p></li>
-<li><p><a class="reference internal" href="#brigadeirao" id="toc-entry-80">Brigadeirão</a></p></li>
-<li><p><a class="reference internal" href="#cookies" id="toc-entry-81">Cookies</a></p></li>
-<li><p><a class="reference internal" href="#mousee-de-maracuja" id="toc-entry-82">Mousee de Maracujá</a></p></li>
-<li><p><a class="reference internal" href="#muffin-de-chocolate-e-banana" id="toc-entry-83">Muffin de chocolate e banana</a></p></li>
-<li><p><a class="reference internal" href="#doce-de-abobora" id="toc-entry-84">Doce de Abóbora</a></p></li>
-<li><p><a class="reference internal" href="#eng-steamed-maple-pudding" id="toc-entry-85">[ENG] Steamed Maple Pudding</a></p></li>
-<li><p><a class="reference internal" href="#pudim-de-xarope-cozido-no-vapor" id="toc-entry-86">Pudim de xarope cozido no vapor</a></p></li>
-<li><p><a class="reference internal" href="#eng-apple-carrot-muffins" id="toc-entry-87">[ENG] Apple Carrot Muffins</a></p></li>
-<li><p><a class="reference internal" href="#muffins-de-cenoura-com-maca" id="toc-entry-88">Muffins de cenoura com maçã</a></p></li>
-<li><p><a class="reference internal" href="#figo-em-calda-com-casca" id="toc-entry-89">Figo em calda (com casca)</a></p></li>
-<li><p><a class="reference internal" href="#cuca-de-banana-com-farofa" id="toc-entry-90">Cuca de banana com farofa</a></p></li>
-<li><p><a class="reference internal" href="#eng-blueberry-and-apple-cake" id="toc-entry-91">[ENG] Blueberry and apple cake</a></p></li>
-<li><p><a class="reference internal" href="#eng-apple-cake-pie" id="toc-entry-92">[ENG] Apple cake/pie</a></p></li>
-<li><p><a class="reference internal" href="#sorvete-marido-gelado" id="toc-entry-93">Sorvete &quot;Marido Gelado&quot;</a></p></li>
-<li><p><a class="reference internal" href="#eng-banana-bread" id="toc-entry-94">[ENG] Banana bread</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-aveia-com-laranja" id="toc-entry-95">Bolo de aveia com laranja</a></p></li>
-<li><p><a class="reference internal" href="#bolo-de-fuba-com-cenoura" id="toc-entry-96">Bolo de Fubá com Cenoura</a></p></li>
-<li><p><a class="reference internal" href="#brownie-saudavel" id="toc-entry-97">Brownie saudavel</a></p></li>
-<li><p><a class="reference internal" href="#arroz-doce" id="toc-entry-98">Arroz doce</a></p></li>
-<li><p><a class="reference internal" href="#cuca-de-banana" id="toc-entry-99">Cuca de banana</a></p></li>
+<li><p><a class="reference internal" href="#pao-e-pizza-01" id="toc-entry-39">Pão e Pizza (01)</a></p></li>
+<li><p><a class="reference internal" href="#pao-e-pizza-02" id="toc-entry-40">Pão e Pizza (02)</a></p></li>
+<li><p><a class="reference internal" href="#eng-bread-03" id="toc-entry-41">[ENG] Bread (03)</a></p></li>
+<li><p><a class="reference internal" href="#pao-sirio" id="toc-entry-42">Pão sírio</a></p></li>
+<li><p><a class="reference internal" href="#pasta-massa-de-macarrao-ou-lasanha" id="toc-entry-43">Pasta (massa de macarrão ou lasanha)</a></p></li>
+<li><p><a class="reference internal" href="#gnocchi" id="toc-entry-44">Gnocchi</a></p></li>
+<li><p><a class="reference internal" href="#macarrao-de-panela-de-pressao" id="toc-entry-45">Macarrão de panela de pressão</a></p></li>
+<li><p><a class="reference internal" href="#peta" id="toc-entry-46">Peta</a></p></li>
+<li><p><a class="reference internal" href="#molho-pesto" id="toc-entry-47">Molho pesto</a></p></li>
+<li><p><a class="reference internal" href="#molho-de-queijo-vegano" id="toc-entry-48">Molho de queijo vegano</a></p></li>
+<li><p><a class="reference internal" href="#eng-cranberry-sauce" id="toc-entry-49">[ENG] Cranberry Sauce</a></p></li>
+<li><p><a class="reference internal" href="#ragu" id="toc-entry-50">Ragú</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-queijo" id="toc-entry-51">Pão de queijo</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-queijo-referencia" id="toc-entry-52">Pão de queijo (referencia)</a></p></li>
+<li><p><a class="reference internal" href="#eng-cheese-balls" id="toc-entry-53">[ENG] Cheese Balls</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-banana" id="toc-entry-54">Pão de banana</a></p></li>
+<li><p><a class="reference internal" href="#panqueca-de-quinoa" id="toc-entry-55">Panqueca de quinoa</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-batata" id="toc-entry-56">Pão de batata</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-batata-doce" id="toc-entry-57">Pao de batata doce</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-aveia" id="toc-entry-58">Pao de aveia</a></p></li>
+<li><p><a class="reference internal" href="#pao-trabalhoso" id="toc-entry-59">Pao &quot;trabalhoso&quot;</a></p></li>
+<li><p><a class="reference internal" href="#pao-matlouh-pao-argelino" id="toc-entry-60">Pão Matlouh, pão argelino</a></p></li>
+<li><p><a class="reference internal" href="#pao-frances-mega-complicado" id="toc-entry-61">Pao frances mega complicado</a></p></li>
+<li><p><a class="reference internal" href="#pao-azimo" id="toc-entry-62">Pao Azimo</a></p></li>
+<li><p><a class="reference internal" href="#pao-da-mama" id="toc-entry-63">Pao da Mama</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#churrasco" id="toc-entry-100">Churrasco</a></p>
+<li><p><a class="reference internal" href="#bolos-e-doces" id="toc-entry-64">Bolos e doces</a></p>
 <ul>
-<li><p><a class="reference internal" href="#equivalencia" id="toc-entry-101">Equivalencia</a></p></li>
-<li><p><a class="reference internal" href="#equivalence" id="toc-entry-102">Equivalence</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-cenoura-com-linhaca" id="toc-entry-65">Bolo de cenoura com linhaça</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-cenoura" id="toc-entry-66">Bolo de cenoura</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-cenoura-ou-beterraba-da-dona-elza" id="toc-entry-67">Bolo de cenoura ou beterraba da Dona Elza</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-cenoura-nv1c" id="toc-entry-68">Bolo de cenoura NV1C</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-cenoura-e-aveia" id="toc-entry-69">Bolo de cenoura e aveia</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-banana-e-aveia-com-uvas-passas" id="toc-entry-70">Bolo de banana e aveia com uvas-passas</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-fuba" id="toc-entry-71">Bolo de Fubá</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-chocolate" id="toc-entry-72">Bolo de chocolate</a></p></li>
+<li><p><a class="reference internal" href="#bolo-branco" id="toc-entry-73">Bolo branco</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-aipim" id="toc-entry-74">Bolo de aipim</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-lo" id="toc-entry-75">Pão de ló</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-lo-de-chocolate" id="toc-entry-76">Pão de ló de chocolate</a></p></li>
+<li><p><a class="reference internal" href="#danoninho" id="toc-entry-77">Danoninho</a></p></li>
+<li><p><a class="reference internal" href="#biscoito" id="toc-entry-78">Biscoito</a></p></li>
+<li><p><a class="reference internal" href="#brownies-aux-noisettes" id="toc-entry-79">Brownies aux noisettes</a></p></li>
+<li><p><a class="reference internal" href="#pasta-cigarrete" id="toc-entry-80">Pasta cigarrete</a></p></li>
+<li><p><a class="reference internal" href="#bisquit-joconde" id="toc-entry-81">Bisquit joconde</a></p></li>
+<li><p><a class="reference internal" href="#torta-mousse-de-chocolate" id="toc-entry-82">Torta mousse de chocolate</a></p></li>
+<li><p><a class="reference internal" href="#torta-de-abacaxi-com-coco" id="toc-entry-83">Torta de abacaxi com côco</a></p></li>
+<li><p><a class="reference internal" href="#torta-de-limao" id="toc-entry-84">Torta de limão</a></p></li>
+<li><p><a class="reference internal" href="#torta-de-sorvete" id="toc-entry-85">Torta de Sorvete</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-milho-01" id="toc-entry-86">Bolo de milho (01)</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-milho-02" id="toc-entry-87">Bolo de milho (02)</a></p></li>
+<li><p><a class="reference internal" href="#cacarola-italiana" id="toc-entry-88">Caçarola italiana</a></p></li>
+<li><p><a class="reference internal" href="#pao-de-sto-antonio" id="toc-entry-89">Pão de Sto. Antonio</a></p></li>
+<li><p><a class="reference internal" href="#pudim-4-leites" id="toc-entry-90">Pudim 4 leites</a></p></li>
+<li><p><a class="reference internal" href="#pudim-expresso-de-chocolate" id="toc-entry-91">Pudim expresso de chocolate</a></p></li>
+<li><p><a class="reference internal" href="#brigadeirao" id="toc-entry-92">Brigadeirão</a></p></li>
+<li><p><a class="reference internal" href="#cookies" id="toc-entry-93">Cookies</a></p></li>
+<li><p><a class="reference internal" href="#mousee-de-maracuja" id="toc-entry-94">Mousee de Maracujá</a></p></li>
+<li><p><a class="reference internal" href="#muffin-de-chocolate-e-banana" id="toc-entry-95">Muffin de chocolate e banana</a></p></li>
+<li><p><a class="reference internal" href="#doce-de-abobora" id="toc-entry-96">Doce de Abóbora</a></p></li>
+<li><p><a class="reference internal" href="#eng-steamed-maple-pudding" id="toc-entry-97">[ENG] Steamed Maple Pudding</a></p></li>
+<li><p><a class="reference internal" href="#pudim-de-xarope-cozido-no-vapor" id="toc-entry-98">Pudim de xarope cozido no vapor</a></p></li>
+<li><p><a class="reference internal" href="#eng-apple-carrot-muffins" id="toc-entry-99">[ENG] Apple Carrot Muffins</a></p></li>
+<li><p><a class="reference internal" href="#muffins-de-cenoura-com-maca" id="toc-entry-100">Muffins de cenoura com maçã</a></p></li>
+<li><p><a class="reference internal" href="#figo-em-calda-com-casca" id="toc-entry-101">Figo em calda (com casca)</a></p></li>
+<li><p><a class="reference internal" href="#cuca-de-banana-com-farofa" id="toc-entry-102">Cuca de banana com farofa</a></p></li>
+<li><p><a class="reference internal" href="#eng-blueberry-and-apple-cake" id="toc-entry-103">[ENG] Blueberry and apple cake</a></p></li>
+<li><p><a class="reference internal" href="#eng-apple-cake-pie" id="toc-entry-104">[ENG] Apple cake/pie</a></p></li>
+<li><p><a class="reference internal" href="#sorvete-marido-gelado" id="toc-entry-105">Sorvete &quot;Marido Gelado&quot;</a></p></li>
+<li><p><a class="reference internal" href="#eng-banana-bread" id="toc-entry-106">[ENG] Banana bread</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-aveia-com-laranja" id="toc-entry-107">Bolo de aveia com laranja</a></p></li>
+<li><p><a class="reference internal" href="#bolo-de-fuba-com-cenoura" id="toc-entry-108">Bolo de Fubá com Cenoura</a></p></li>
+<li><p><a class="reference internal" href="#brownie-saudavel" id="toc-entry-109">Brownie saudavel</a></p></li>
+<li><p><a class="reference internal" href="#arroz-doce" id="toc-entry-110">Arroz doce</a></p></li>
+<li><p><a class="reference internal" href="#cuca-de-banana" id="toc-entry-111">Cuca de banana</a></p></li>
+<li><p><a class="reference internal" href="#chocolate-fudge" id="toc-entry-112">Chocolate Fudge</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#drinks" id="toc-entry-103">Drinks</a></p>
+<li><p><a class="reference internal" href="#churrasco" id="toc-entry-113">Churrasco</a></p>
 <ul>
-<li><p><a class="reference internal" href="#super-juice" id="toc-entry-104">Super juice</a></p></li>
-<li><p><a class="reference internal" href="#caipirinha-with-super-juice" id="toc-entry-105">Caipirinha with super juice</a></p></li>
-<li><p><a class="reference internal" href="#super-juice-drink" id="toc-entry-106">Super juice drink</a></p></li>
-<li><p><a class="reference internal" href="#vinho-quente" id="toc-entry-107">Vinho quente</a></p></li>
-<li><p><a class="reference internal" href="#negroni" id="toc-entry-108">Negroni</a></p></li>
-<li><p><a class="reference internal" href="#gin-and-tonic" id="toc-entry-109">Gin and tonic</a></p></li>
-<li><p><a class="reference internal" href="#cosmopolitan" id="toc-entry-110">Cosmopolitan</a></p></li>
-<li><p><a class="reference internal" href="#mojito" id="toc-entry-111">Mojito</a></p></li>
-<li><p><a class="reference internal" href="#tequila-sunrise" id="toc-entry-112">Tequila Sunrise</a></p></li>
-<li><p><a class="reference internal" href="#pina-colada" id="toc-entry-113">Pina Colada</a></p></li>
-<li><p><a class="reference internal" href="#rob-roy" id="toc-entry-114">Rob Roy</a></p></li>
-<li><p><a class="reference internal" href="#blood-mary" id="toc-entry-115">Blood Mary</a></p></li>
-<li><p><a class="reference internal" href="#mai-tai" id="toc-entry-116">Mai Tai</a></p></li>
-<li><p><a class="reference internal" href="#sidecar" id="toc-entry-117">Sidecar</a></p></li>
-<li><p><a class="reference internal" href="#old-fashioned" id="toc-entry-118">Old-fashioned</a></p></li>
-<li><p><a class="reference internal" href="#moscow-mule" id="toc-entry-119">Moscow mule</a></p></li>
-<li><p><a class="reference internal" href="#penicillin" id="toc-entry-120">Penicillin</a></p></li>
-<li><p><a class="reference internal" href="#aperol-spritz" id="toc-entry-121">Aperol spritz</a></p></li>
-<li><p><a class="reference internal" href="#aviation" id="toc-entry-122">Aviation</a></p></li>
-<li><p><a class="reference internal" href="#gin-martini" id="toc-entry-123">Gin Martini</a></p></li>
-<li><p><a class="reference internal" href="#grand-manhattan" id="toc-entry-124">Grand Manhattan</a></p></li>
-<li><p><a class="reference internal" href="#the-revolver" id="toc-entry-125">The Revolver</a></p></li>
-<li><p><a class="reference internal" href="#other-drinks" id="toc-entry-126">Other drinks</a></p></li>
+<li><p><a class="reference internal" href="#equivalencia" id="toc-entry-114">Equivalencia</a></p></li>
+<li><p><a class="reference internal" href="#equivalence" id="toc-entry-115">Equivalence</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#observacoes-culinarias" id="toc-entry-127">Observações culinárias</a></p>
+<li><p><a class="reference internal" href="#drinks" id="toc-entry-116">Drinks</a></p>
 <ul>
-<li><p><a class="reference internal" href="#medidores-de-volume" id="toc-entry-128">Medidores de volume</a></p></li>
-<li><p><a class="reference internal" href="#eng-measurements" id="toc-entry-129">[ENG] Measurements</a></p></li>
-<li><p><a class="reference internal" href="#fermentos" id="toc-entry-130">Fermentos</a></p></li>
-<li><p><a class="reference internal" href="#pratos-indianos-e-nepales" id="toc-entry-131">Pratos indianos e nepales</a></p></li>
-<li><p><a class="reference internal" href="#fuba-e-farinha-de-milho" id="toc-entry-132">Fubá e farinha de milho</a></p></li>
-<li><p><a class="reference internal" href="#eng-corn-strach-corn-flour-corn-meal" id="toc-entry-133">[Eng] Corn strach, corn flour, corn meal</a></p></li>
+<li><p><a class="reference internal" href="#super-juice" id="toc-entry-117">Super juice</a></p></li>
+<li><p><a class="reference internal" href="#caipirinha-with-super-juice" id="toc-entry-118">Caipirinha with super juice</a></p></li>
+<li><p><a class="reference internal" href="#super-juice-drink" id="toc-entry-119">Super juice drink</a></p></li>
+<li><p><a class="reference internal" href="#vinho-quente" id="toc-entry-120">Vinho quente</a></p></li>
+<li><p><a class="reference internal" href="#negroni" id="toc-entry-121">Negroni</a></p></li>
+<li><p><a class="reference internal" href="#gin-and-tonic" id="toc-entry-122">Gin and tonic</a></p></li>
+<li><p><a class="reference internal" href="#cosmopolitan" id="toc-entry-123">Cosmopolitan</a></p></li>
+<li><p><a class="reference internal" href="#mojito" id="toc-entry-124">Mojito</a></p></li>
+<li><p><a class="reference internal" href="#tequila-sunrise" id="toc-entry-125">Tequila Sunrise</a></p></li>
+<li><p><a class="reference internal" href="#pina-colada" id="toc-entry-126">Pina Colada</a></p></li>
+<li><p><a class="reference internal" href="#rob-roy" id="toc-entry-127">Rob Roy</a></p></li>
+<li><p><a class="reference internal" href="#blood-mary" id="toc-entry-128">Blood Mary</a></p></li>
+<li><p><a class="reference internal" href="#mai-tai" id="toc-entry-129">Mai Tai</a></p></li>
+<li><p><a class="reference internal" href="#sidecar" id="toc-entry-130">Sidecar</a></p></li>
+<li><p><a class="reference internal" href="#old-fashioned" id="toc-entry-131">Old-fashioned</a></p></li>
+<li><p><a class="reference internal" href="#moscow-mule" id="toc-entry-132">Moscow mule</a></p></li>
+<li><p><a class="reference internal" href="#penicillin" id="toc-entry-133">Penicillin</a></p></li>
+<li><p><a class="reference internal" href="#aperol-spritz" id="toc-entry-134">Aperol spritz</a></p></li>
+<li><p><a class="reference internal" href="#aviation" id="toc-entry-135">Aviation</a></p></li>
+<li><p><a class="reference internal" href="#gin-martini" id="toc-entry-136">Gin Martini</a></p></li>
+<li><p><a class="reference internal" href="#grand-manhattan" id="toc-entry-137">Grand Manhattan</a></p></li>
+<li><p><a class="reference internal" href="#the-revolver" id="toc-entry-138">The Revolver</a></p></li>
+<li><p><a class="reference internal" href="#other-drinks" id="toc-entry-139">Other drinks</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#para-avaliar" id="toc-entry-134">Para avaliar</a></p></li>
+<li><p><a class="reference internal" href="#observacoes-culinarias" id="toc-entry-140">Observações culinárias</a></p>
+<ul>
+<li><p><a class="reference internal" href="#medidores-de-volume" id="toc-entry-141">Medidores de volume</a></p></li>
+<li><p><a class="reference internal" href="#eng-measurements" id="toc-entry-142">[ENG] Measurements</a></p></li>
+<li><p><a class="reference internal" href="#fermentos" id="toc-entry-143">Fermentos</a></p></li>
+<li><p><a class="reference internal" href="#pratos-indianos-e-nepales" id="toc-entry-144">Pratos indianos e nepales</a></p></li>
+<li><p><a class="reference internal" href="#fuba-e-farinha-de-milho" id="toc-entry-145">Fubá e farinha de milho</a></p></li>
+<li><p><a class="reference internal" href="#eng-corn-strach-corn-flour-corn-meal" id="toc-entry-146">[Eng] Corn strach, corn flour, corn meal</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#para-avaliar" id="toc-entry-147">Para avaliar</a></p></li>
 </ul>
 </nav>
+<section id="sopas">
+<h2><a class="toc-backref" href="#toc-entry-1" role="doc-backlink">Sopas</a></h2>
+<section id="miso-soup">
+<h3><a class="toc-backref" href="#toc-entry-2" role="doc-backlink">Miso Soup</a></h3>
+<p>Ingredients</p>
+<ul class="simple">
+<li><p>2 cups water</p></li>
+<li><p>1 (2x2-inch) piece dried kombu</p></li>
+<li><p>1 cup loosely packed katsuobushi (dried bonito flakes, 5 grams)</p></li>
+<li><p>2 teaspoons dried wakame (seaweed, optional)</p></li>
+<li><p>1 to 2 scallions</p></li>
+<li><p>4 ounces soft tofu</p></li>
+<li><p>2 tablespoons white or red miso paste (white is milder in flavor)</p></li>
+</ul>
+<p>How to Make Miso Soup</p>
+<ol class="arabic simple">
+<li><p>Make the dashi. Heat kombu and cold water in a saucepan until just before bubbles start to release from the bottom of the saucepan. Don't let the water come to a boil, or the kombu can get slimy or bitter. Turn off the heat and remove the kombu. Save the kombu for another use, or discard it. Add the katsuobushi, and bring the dashi back to a simmer. Turn off the heat and let steep while you prepare the other ingredients.</p></li>
+<li><p>Prepare the garnishes. Add the dried wakame to a small bowl and cover with cold water. Thinly slice scallions. Cut tofu into 1/2-inch cubes.</p></li>
+<li><p>Make the miso soup. Strain the dashi and return to the pot. Bring back to a simmer, then turn off the heat. Add the miso to the strainer and place over the soup pot. Push the miso through the strainer and into the soup. Discard any chunks left over in the strainer. Strain the wakame and add to the soup along with the wakame, scallions, and tofu.</p></li>
+</ol>
+<p><a class="reference external" href="https://www.thekitchn.com/how-to-make-miso-soup-cooking-lessons-from-the-kitchn-13786">https://www.thekitchn.com/how-to-make-miso-soup-cooking-lessons-from-the-kitchn-13786</a></p>
+</section>
+<section id="chickpeas-soup">
+<h3><a class="toc-backref" href="#toc-entry-3" role="doc-backlink">Chickpeas soup</a></h3>
+<p>Simple, creamy and simple to make!</p>
+<p>Ingredients</p>
+<ul class="simple">
+<li><p>500g (1 pound) cooked chickpeas;</p></li>
+<li><p>500g (1 pound) pumpkin;</p></li>
+<li><p>1 onion</p></li>
+<li><p>1 medium potato;</p></li>
+<li><p>1 small carrot;</p></li>
+<li><p>1 medium tomato;</p></li>
+<li><p>45ml (3 tbsp) olive oil;</p></li>
+<li><p>Salt and pepper;</p></li>
+<li><p>Fresh parsley, chopped.</p></li>
+</ul>
+<p>Method</p>
+<ol class="arabic simple">
+<li><p>Peel all the vegetables and cut them into cubes.</p></li>
+<li><p>Preheat olive oil in a medium pot with a thick bottom. Add olive oil and cook carrots and onions for 10 minutes.</p></li>
+<li><p>Add pumpkin and potatoes, season with salt and pepper, then pour water over just to cover the vegetables. Cook for 30 minutes on medium-low heat.</p></li>
+<li><p>Add chopped tomato and parsley, bring to a boil, and remove from heat.</p></li>
+<li><p>Serve right away, drizzled with olive with 2 slices of ciabatta bread.</p></li>
+</ol>
+</section>
+<section id="potato-soup">
+<h3><a class="toc-backref" href="#toc-entry-4" role="doc-backlink">Potato Soup</a></h3>
+<p>Creamy and healthy.</p>
+<p>Ingredients</p>
+<ul class="simple">
+<li><p>1 tablespoon olive oil</p></li>
+<li><p>1 medium yellow onion, diced</p></li>
+<li><p>2 large carrots, diced small</p></li>
+<li><p>2 stalks celery, diced small (optional)</p></li>
+<li><p>3 cloves garlic, minced</p></li>
+<li><p>2 lbs Yukon Gold or Yellow potatoes, peeled and cubed (1-inch pieces)</p></li>
+<li><p>5 cups low-sodium vegetable or chicken broth (optional)</p></li>
+<li><p>1 teaspoon dried thyme (or rosemary alternatively)</p></li>
+<li><p>1/2 cup plain non-fat Greek yogurt (or low-fat sour cream)</p></li>
+<li><p>Salt and black pepper to taste</p></li>
+</ul>
+<p>Instructions</p>
+<p>Sauté the Base: Heat olive oil in a large pot over medium heat. Add the onion and celery. Sauté for about 6–8 minutes until the onions are translucent and the celery soften. Add the minced garlic and thyme/rosemary.</p>
+<p>Simmer: Add the cubed potatoes and carrots to a boil. Blend about half of the soup.</p>
+<p>Finish: Remove the pot from the heat. Stir in the Greek yogurt until completely incorporated.</p>
+</section>
+<section id="lemony-lentil-and-spinach-soup">
+<h3><a class="toc-backref" href="#toc-entry-5" role="doc-backlink">Lemony Lentil and Spinach Soup</a></h3>
+<p>Ingredients</p>
+<ul class="simple">
+<li><p>1 tablespoon olive oil</p></li>
+<li><p>1 yellow onion, chopped</p></li>
+<li><p>2 carrots, peeled and chopped</p></li>
+<li><p>2 celery stalks, chopped</p></li>
+<li><p>2-3 cloves garlic, minced</p></li>
+<li><p>1 cup brown or green lentils, rinsed</p></li>
+<li><p>6 cups vegetable broth (optional)</p></li>
+<li><p>1 (14.5 ounce) can diced tomatoes, undrained</p></li>
+<li><p>1 teaspoon dried oregano</p></li>
+<li><p>1/2 teaspoon dried thyme</p></li>
+<li><p>1/4 teaspoon crushed red pepper flakes (optional, for a little heat)</p></li>
+<li><p>4-5 ounces baby spinach</p></li>
+<li><p>Juice of 1 large lemon (about 2-3 tablespoons, optional)</p></li>
+<li><p>Salt and black pepper to taste</p></li>
+</ul>
+<p>Instructions</p>
+<p>Sauté Aromatics: Heat the olive oil in a large pot or Dutch oven over medium heat. Add the chopped onion, carrots, and celery. Cook for about 5-7 minutes, until the vegetables begin to soften. Add Garlic and Seasonings.</p>
+<p>Simmer: Pour in the rinsed lentils, vegetable broth, and diced tomatoes (with their juice). Bring the mixture to a boil until the lentils are tender.</p>
+<p>Stir in Spinach and Lemon: Once the lentils are cooked, remove the pot from the heat. Stir in the baby spinach—the residual heat will wilt it immediately. Stir in the lemon juice.</p>
+</section>
+</section>
 <section id="pratos">
-<h2><a class="toc-backref" href="#toc-entry-1" role="doc-backlink">Pratos</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-6" role="doc-backlink">Pratos</a></h2>
 <section id="arroz">
-<h3><a class="toc-backref" href="#toc-entry-2" role="doc-backlink">Arroz</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-7" role="doc-backlink">Arroz</a></h3>
 <p>Para refogar:</p>
 <ul class="simple">
 <li><p>Lave o arroz.</p></li>
@@ -547,7 +905,7 @@ ul.auto-toc {
 </ul>
 </section>
 <section id="batata-com-brocolis-e-molho-branco">
-<h3><a class="toc-backref" href="#toc-entry-3" role="doc-backlink">Batata com brocolis e molho branco</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-8" role="doc-backlink">Batata com brocolis e molho branco</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>5 batatas médias</p></li>
@@ -574,7 +932,7 @@ ul.auto-toc {
 </section>
 </section>
 <section id="couve-a-mineira">
-<h3><a class="toc-backref" href="#toc-entry-4" role="doc-backlink">Couve à mineira</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-9" role="doc-backlink">Couve à mineira</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>um maço de couve</p></li>
@@ -595,7 +953,7 @@ ul.auto-toc {
 </section>
 </section>
 <section id="empadao">
-<h3><a class="toc-backref" href="#toc-entry-5" role="doc-backlink">Empadão</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-10" role="doc-backlink">Empadão</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 gemas</p></li>
@@ -613,7 +971,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="feijao">
-<h3><a class="toc-backref" href="#toc-entry-6" role="doc-backlink">Feijão</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-11" role="doc-backlink">Feijão</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 quilo de feijão</p></li>
@@ -631,7 +989,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="quiche-de-queijo">
-<h3><a class="toc-backref" href="#toc-entry-7" role="doc-backlink">Quiche de queijo</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-12" role="doc-backlink">Quiche de queijo</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>2 ovos e 1 gema</p></li>
@@ -656,7 +1014,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="refogado">
-<h3><a class="toc-backref" href="#toc-entry-8" role="doc-backlink">Refogado</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-13" role="doc-backlink">Refogado</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>2 dentes de alho</p></li>
@@ -673,7 +1031,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="salada-andaluza">
-<h3><a class="toc-backref" href="#toc-entry-9" role="doc-backlink">Salada andaluza</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-14" role="doc-backlink">Salada andaluza</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 tomates</p></li>
@@ -694,7 +1052,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="soja-com-cenoura">
-<h3><a class="toc-backref" href="#toc-entry-10" role="doc-backlink">Soja com cenoura</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-15" role="doc-backlink">Soja com cenoura</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>100 gramas de proteina de soja grande</p></li>
@@ -715,7 +1073,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="torta-de-atum">
-<h3><a class="toc-backref" href="#toc-entry-11" role="doc-backlink">Torta de atum</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-16" role="doc-backlink">Torta de atum</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 ovos</p></li>
@@ -740,7 +1098,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="torta-salgada">
-<h3><a class="toc-backref" href="#toc-entry-12" role="doc-backlink">Torta Salgada</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-17" role="doc-backlink">Torta Salgada</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 ovos</p></li>
@@ -757,7 +1115,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="strogonoff">
-<h3><a class="toc-backref" href="#toc-entry-13" role="doc-backlink">Strogonoff</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-18" role="doc-backlink">Strogonoff</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500 g de peito de frango cortados em cubos</p></li>
@@ -777,7 +1135,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="file-de-peixe-01">
-<h3><a class="toc-backref" href="#toc-entry-14" role="doc-backlink">Filé de Peixe (01)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-19" role="doc-backlink">Filé de Peixe (01)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500 g de filé de peixe (tilápia, saint peter ou outro)</p></li>
@@ -803,7 +1161,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="file-de-peixe-02">
-<h3><a class="toc-backref" href="#toc-entry-15" role="doc-backlink">Filé de peixe (02)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-20" role="doc-backlink">Filé de peixe (02)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500 g de filé de peixe (a sua escolha)</p></li>
@@ -817,7 +1175,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="moqueca">
-<h3><a class="toc-backref" href="#toc-entry-16" role="doc-backlink">Moqueca</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-21" role="doc-backlink">Moqueca</a></h3>
 <p>Ingredients:</p>
 <blockquote>
 <ul class="simple">
@@ -848,7 +1206,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="eng-eggplant-antipasto">
-<h3><a class="toc-backref" href="#toc-entry-17" role="doc-backlink">[ENG] Eggplant antipasto</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-22" role="doc-backlink">[ENG] Eggplant antipasto</a></h3>
 <p>Ingredients:</p>
 <ul class="simple">
 <li><p>2 pounds of eggplant (or the pack sold at the farmer market)</p></li>
@@ -868,7 +1226,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="eng-moqueca-brazilian-seafood-stew">
-<h3><a class="toc-backref" href="#toc-entry-18" role="doc-backlink">[ENG] Moqueca (Brazilian seafood stew)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-23" role="doc-backlink">[ENG] Moqueca (Brazilian seafood stew)</a></h3>
 <p>Ingredients:</p>
 <ul class="simple">
 <li><p>1/2 to 2 pounds of fillets of firm white fish such as halibut, swordfish, or cod, rinsed in cold water, pin bones removed, cut into large portions</p></li>
@@ -897,7 +1255,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="zucchini">
-<h3><a class="toc-backref" href="#toc-entry-19" role="doc-backlink">Zucchini</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-24" role="doc-backlink">Zucchini</a></h3>
 <ul class="simple">
 <li><p>3 zucchini</p></li>
 <li><p>0.5 onion</p></li>
@@ -915,7 +1273,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>How to prepare: TBD.</p>
 </section>
 <section id="assado-do-bem-nozes-aveia-grao-de-bico-batata-doce">
-<h3><a class="toc-backref" href="#toc-entry-20" role="doc-backlink">Assado do bem (nozes, aveia, grão de bico, batata doce)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-25" role="doc-backlink">Assado do bem (nozes, aveia, grão de bico, batata doce)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>Uma xícara de aveia</p></li>
@@ -948,7 +1306,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="quibe-de-trigo">
-<h3><a class="toc-backref" href="#toc-entry-21" role="doc-backlink">Quibe de trigo</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-26" role="doc-backlink">Quibe de trigo</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 beringela</p></li>
@@ -968,7 +1326,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="eng-lentil-burguers">
-<h3><a class="toc-backref" href="#toc-entry-22" role="doc-backlink">[ENG] Lentil burguers</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-27" role="doc-backlink">[ENG] Lentil burguers</a></h3>
 <p>Ingredients</p>
 <ul class="simple">
 <li><p>2 cups boiled or steamed brown lentils (~150g of dry lentils)</p></li>
@@ -999,7 +1357,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="eng-chicken-marsala">
-<h3><a class="toc-backref" href="#toc-entry-23" role="doc-backlink">[ENG] Chicken Marsala</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-28" role="doc-backlink">[ENG] Chicken Marsala</a></h3>
 <p>Chicken:</p>
 <ul class="simple">
 <li><p>1/2 cup all-purpose flour (plain flour)</p></li>
@@ -1033,7 +1391,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="eng-simple-chicken-curry-chicken-masala">
-<h3><a class="toc-backref" href="#toc-entry-24" role="doc-backlink">[ENG] Simple chicken curry (&quot;Chicken masala&quot;)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-29" role="doc-backlink">[ENG] Simple chicken curry (&quot;Chicken masala&quot;)</a></h3>
 <p>Ingredients:</p>
 <ul class="simple">
 <li><p>Chicken, 1 kg</p></li>
@@ -1062,7 +1420,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>Taken from: <a class="reference external" href="https://youtu.be/jwyge5daKUQ">https://youtu.be/jwyge5daKUQ</a></p>
 </section>
 <section id="coxinha-de-batata">
-<h3><a class="toc-backref" href="#toc-entry-25" role="doc-backlink">Coxinha de batata</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-30" role="doc-backlink">Coxinha de batata</a></h3>
 <ul class="simple">
 <li><p>200g de batata cozida</p></li>
 <li><p>150g de peito de frango desfiado</p></li>
@@ -1071,7 +1429,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>Amasse a batata e adicione o frango. Misture bem ate' formar uma massinha. Abra a massa na mao, coloque o recheio e feche. Asse a 180.C por aprox. 20 minutos.</p>
 </section>
 <section id="torta-de-zucchini-simples">
-<h3><a class="toc-backref" href="#toc-entry-26" role="doc-backlink">Torta de Zucchini simples</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-31" role="doc-backlink">Torta de Zucchini simples</a></h3>
 <ul class="simple">
 <li><p>1 zucchini</p></li>
 <li><p>2 ovos</p></li>
@@ -1082,11 +1440,47 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </ul>
 <p>Rale o zucchini grosso e adicione uma colher de cha de sal. Repouse por 10 minutos e esprema bem o liquido da zucchini. Bata os ovos com os temperos e adicione todos os ingredientes. Cozinhe numa frigedira aquecida com um fio de azeite. Inicie com as rodelas de tomate e adicione a massa no fogo baixo/medio <em>com tampa</em> por ~5 minutos, antes de virar. Alternativamente, leve a massa ao forno.</p>
 </section>
+<section id="maminha-de-colher">
+<h3><a class="toc-backref" href="#toc-entry-32" role="doc-backlink">Maminha de colher</a></h3>
+<p>Ingredientes:</p>
+<ul class="simple">
+<li><p>1 Maminha</p></li>
+<li><p>1 Cebola</p></li>
+<li><p>Vinho branco (a gosto)</p></li>
+<li><p>3 dentes de alho</p></li>
+<li><p>1 Pimentão Vermelho</p></li>
+<li><p>1 Tomate</p></li>
+<li><p>50 ml de Shoyu</p></li>
+<li><p>Pimenta do Reino</p></li>
+<li><p>Sal</p></li>
+<li><p>Paprica Defumada</p></li>
+</ul>
+<p>Modo de fazer:</p>
+<ul class="simple">
+<li><p>Selar todos os lados da maminha com sal, pimenta do reino, com um fundo de oleo na panela de pressao. Reserve.</p></li>
+<li><p>Refogar a cebola com outros ingredientes na panela de pressao (menos os temperos).</p></li>
+<li><p>Retorne a peca de maminha, adicione os ultimos temperos. Cubra com agua e deixe na pressao por 45 minutos.</p></li>
+</ul>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=LfmJlaN8YeU">https://www.youtube.com/watch?v=LfmJlaN8YeU</a></p>
+</section>
+<section id="chicken-marinade">
+<h3><a class="toc-backref" href="#toc-entry-33" role="doc-backlink">Chicken Marinade</a></h3>
+<ul class="simple">
+<li><p>2 tbsp honey OR brown sugar</p></li>
+<li><p>1 tbsp olive oil (or any oil)</p></li>
+<li><p>5 tbsp soy sauce</p></li>
+<li><p>2 tbsp lemon juice</p></li>
+<li><p>2 tsp Worcestershire sauce</p></li>
+<li><p>4 garlic cloves, minced</p></li>
+<li><p>1 tsp dried oregano (or rosemary, thyme, minced herbs)</p></li>
+<li><p>1/2 tsp black pepper, ground</p></li>
+</ul>
+</section>
 </section>
 <section id="pates-eng-dips">
-<h2><a class="toc-backref" href="#toc-entry-27" role="doc-backlink">Pates ([ENG] Dips)</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-34" role="doc-backlink">Pates ([ENG] Dips)</a></h2>
 <section id="eng-lemon-yogurt-dip">
-<h3><a class="toc-backref" href="#toc-entry-28" role="doc-backlink">[ENG] Lemon Yogurt Dip</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-35" role="doc-backlink">[ENG] Lemon Yogurt Dip</a></h3>
 <ul class="simple">
 <li><p>1/2 cup Greek or plain yogurt</p></li>
 <li><p>1 clove garlic, crushed</p></li>
@@ -1096,7 +1490,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </ul>
 </section>
 <section id="cenoura">
-<h3><a class="toc-backref" href="#toc-entry-29" role="doc-backlink">Cenoura</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-36" role="doc-backlink">Cenoura</a></h3>
 <ul class="simple">
 <li><p>3 cenouras grandes</p></li>
 <li><p>1/3 xícara de shoyu</p></li>
@@ -1113,11 +1507,29 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>Corte as cenouras em rodelas grossas e coloque numa tigela temperando os ingredientes. Misture bem e leve tudo pra assar em forno alto (200°C) por cerca de 25 minutos, ou até a cenoura ficar dourada e macia.</p>
 <p>Bata no liquidificador com os outros ingredientes. Adicione um pouco de agua ou suco para ajustar cremosidade. Finalize com salsinha picada por cima e pimenta se desejar.</p>
 </section>
+<section id="sweet-hot-asian-dipping">
+<h3><a class="toc-backref" href="#toc-entry-37" role="doc-backlink">Sweet-Hot Asian Dipping</a></h3>
+<p>Ingredients:</p>
+<ul class="simple">
+<li><p>3 cups sugar</p></li>
+<li><p>3 cups cider vinegar</p></li>
+<li><p>1/4 cup crushed red pepper flakes</p></li>
+<li><p>6 garlic cloves, minced</p></li>
+<li><p>2 tablespoons minced fresh ginger root</p></li>
+<li><p>1-1/2 teaspoons canning salt</p></li>
+</ul>
+<p>Directions:</p>
+<ul class="simple">
+<li><p>Bring sugar and vinegar to a boil. Reduce heat; simmer, uncovered, 5 minutes. Remove from heat; stir in the remaining ingredients.</p></li>
+<li><p>Ladle hot liquid into 6 hot half-pint jars, leaving 1/4-in. headspace. Wipe rims. Center lids on jars; screw on bands until fingertip tight.</p></li>
+<li><p>Place jars into canner with simmering water, ensuring that they are completely covered with water. Bring to a boil; process for 20 minutes. Remove jars and cool.</p></li>
+</ul>
+</section>
 </section>
 <section id="paes-massas-e-molhos">
-<h2><a class="toc-backref" href="#toc-entry-30" role="doc-backlink">Pães, massas e molhos</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-38" role="doc-backlink">Pães, massas e molhos</a></h2>
 <section id="pao-e-pizza-01">
-<h3><a class="toc-backref" href="#toc-entry-31" role="doc-backlink">Pão e Pizza (01)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-39" role="doc-backlink">Pão e Pizza (01)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500 gramas de farinha de trigo branca</p></li>
@@ -1143,7 +1555,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="pao-e-pizza-02">
-<h3><a class="toc-backref" href="#toc-entry-32" role="doc-backlink">Pão e Pizza (02)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-40" role="doc-backlink">Pão e Pizza (02)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 kg de farinha de trigo,</p></li>
@@ -1159,7 +1571,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="eng-bread-03">
-<h3><a class="toc-backref" href="#toc-entry-33" role="doc-backlink">[ENG] Bread (03)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-41" role="doc-backlink">[ENG] Bread (03)</a></h3>
 <p>Ingredients:</p>
 <ul class="simple">
 <li><p>1 kg all purpose flour (500 ml = 300 g)</p></li>
@@ -1181,7 +1593,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="pao-sirio">
-<h3><a class="toc-backref" href="#toc-entry-34" role="doc-backlink">Pão sírio</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-42" role="doc-backlink">Pão sírio</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>100 gramas de farinha de grão-de-bico</p></li>
@@ -1198,7 +1610,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="pasta-massa-de-macarrao-ou-lasanha">
-<h3><a class="toc-backref" href="#toc-entry-35" role="doc-backlink">Pasta (massa de macarrão ou lasanha)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-43" role="doc-backlink">Pasta (massa de macarrão ou lasanha)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>100 gramas de farinha de trigo branca</p></li>
@@ -1214,7 +1626,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="gnocchi">
-<h3><a class="toc-backref" href="#toc-entry-36" role="doc-backlink">Gnocchi</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-44" role="doc-backlink">Gnocchi</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>2 quilos de batata</p></li>
@@ -1232,7 +1644,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="macarrao-de-panela-de-pressao">
-<h3><a class="toc-backref" href="#toc-entry-37" role="doc-backlink">Macarrão de panela de pressão</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-45" role="doc-backlink">Macarrão de panela de pressão</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500 g de macarrão parafuso</p></li>
@@ -1252,7 +1664,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="peta">
-<h3><a class="toc-backref" href="#toc-entry-38" role="doc-backlink">Peta</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-46" role="doc-backlink">Peta</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500g de Pouvilho Azedo</p></li>
@@ -1267,7 +1679,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="molho-pesto">
-<h3><a class="toc-backref" href="#toc-entry-39" role="doc-backlink">Molho pesto</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-47" role="doc-backlink">Molho pesto</a></h3>
 <p>Simplesmente bata os seguintes ingredientes no liquidificador:</p>
 <ul class="simple">
 <li><p>um maço de majericão</p></li>
@@ -1280,7 +1692,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </ul>
 </section>
 <section id="molho-de-queijo-vegano">
-<h3><a class="toc-backref" href="#toc-entry-40" role="doc-backlink">Molho de queijo vegano</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-48" role="doc-backlink">Molho de queijo vegano</a></h3>
 <ul class="simple">
 <li><p>Uma xícara de castanha de caju crua deixada de molho</p></li>
 <li><p>Suco de um limão</p></li>
@@ -1292,7 +1704,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </ul>
 </section>
 <section id="eng-cranberry-sauce">
-<h3><a class="toc-backref" href="#toc-entry-41" role="doc-backlink">[ENG] Cranberry Sauce</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-49" role="doc-backlink">[ENG] Cranberry Sauce</a></h3>
 <p>Ingredients
 - 12 ounces cranberries
 - 1 cup white sugar
@@ -1301,7 +1713,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p><a class="reference external" href="https://www.allrecipes.com/recipe/9111/cranberry-sauce/">https://www.allrecipes.com/recipe/9111/cranberry-sauce/</a></p>
 </section>
 <section id="ragu">
-<h3><a class="toc-backref" href="#toc-entry-42" role="doc-backlink">Ragú</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-50" role="doc-backlink">Ragú</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 cebola</p></li>
@@ -1321,7 +1733,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="pao-de-queijo">
-<h3><a class="toc-backref" href="#toc-entry-43" role="doc-backlink">Pão de queijo</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-51" role="doc-backlink">Pão de queijo</a></h3>
 <p>Boa aventura! As receitas variam nas proporcoes abaixo, onde &quot;c&quot; e' &quot;cup&quot;.</p>
 <table>
 <thead>
@@ -1397,7 +1809,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </ul>
 </section>
 <section id="pao-de-queijo-referencia">
-<h3><a class="toc-backref" href="#toc-entry-44" role="doc-backlink">Pão de queijo (referencia)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-52" role="doc-backlink">Pão de queijo (referencia)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>300 ml de leite</p></li>
@@ -1415,13 +1827,13 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="eng-cheese-balls">
-<h3><a class="toc-backref" href="#toc-entry-45" role="doc-backlink">[ENG] Cheese Balls</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-53" role="doc-backlink">[ENG] Cheese Balls</a></h3>
 <p>Recipe &quot;F&quot; above.</p>
 <p>Place the tapioca flour in a large bowl, and separately head the milk, oil, and salt. When the heated mixture starts to boil, scald the tapioca flour with the mix, making sure to break up any lumps. Let it cool, and then add the eggs (one at a time) and cheese - be sure to alternate between the two additions, and kneed well after each new addition! Roll into 1in diameter balls and place them on a greased baking sheet. Put in the oven at 375 (Fahrenheit) and bake until golden brown (which is roughly 20 minutes, depending on your oven).</p>
 <p>The inside will not be super solid - the cheese is melty inside and will make it look soft and underbaked, but this is what you want! As it cools, you'll see that it does harden up and become more dense and bread-like inside. Overall, they are super tasty and pretty fun to make.</p>
 </section>
 <section id="pao-de-banana">
-<h3><a class="toc-backref" href="#toc-entry-46" role="doc-backlink">Pão de banana</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-54" role="doc-backlink">Pão de banana</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>2 bananas</p></li>
@@ -1445,12 +1857,12 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="panqueca-de-quinoa">
-<h3><a class="toc-backref" href="#toc-entry-47" role="doc-backlink">Panqueca de quinoa</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-55" role="doc-backlink">Panqueca de quinoa</a></h3>
 <p>Lave bem 1 xícara de quinoa em grãos e deixe de molho de um dia para o outro. Descarte a água e bata os grãos no liquidificador com 1 xícara de água nova e 1 pitada de sal.</p>
 <p>Faça as panquecas em uma frigideira antiaderente untada com um fiozinho de azeite se necessário!</p>
 </section>
 <section id="pao-de-batata">
-<h3><a class="toc-backref" href="#toc-entry-48" role="doc-backlink">Pão de batata</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-56" role="doc-backlink">Pão de batata</a></h3>
 <p>Pão de batata simples, macio e demorado. Feito em <strong>5h</strong>.</p>
 <p>Ingredientes:</p>
 <ul class="simple">
@@ -1479,7 +1891,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="pao-de-batata-doce">
-<h3><a class="toc-backref" href="#toc-entry-49" role="doc-backlink">Pao de batata doce</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-57" role="doc-backlink">Pao de batata doce</a></h3>
 <p>Pão de batata doce sem farinha!</p>
 <ul class="simple">
 <li><p>1 batata doce média cozida</p></li>
@@ -1493,7 +1905,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>Cozinhe a batata doce (&quot;amarela&quot;) com casca. Amasse, e misture com os ingredientes, comecando pelos ovos.</p>
 </section>
 <section id="pao-de-aveia">
-<h3><a class="toc-backref" href="#toc-entry-50" role="doc-backlink">Pao de aveia</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-58" role="doc-backlink">Pao de aveia</a></h3>
 <ul class="simple">
 <li><p>2 ovos pequenos ou 1 ovo grande</p></li>
 <li><p>1 xícara de aveia ( aveia naturalmente não tem glúten mas pode ter glúten por contaminação )</p></li>
@@ -1505,7 +1917,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </ul>
 </section>
 <section id="pao-trabalhoso">
-<h3><a class="toc-backref" href="#toc-entry-51" role="doc-backlink">Pao &quot;trabalhoso&quot;</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-59" role="doc-backlink">Pao &quot;trabalhoso&quot;</a></h3>
 <p>Ingredientes
 - 3 xic. de farinha de trigo (450g)
 - 2 cols. de chá de fermento biológico (7g)
@@ -1518,11 +1930,135 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>Coloque o pão numa folha de papel manteiga (isso ajuda na hora de colocar na panela). E com cuidado coloque na panela. Adicione umas 4 pedras de gelo, tampe e asse por 20 minutos. Depois tire a tampa e deixe assar até dourar.</p>
 </section>
 </section>
+<section id="pao-matlouh-pao-argelino">
+<h3><a class="toc-backref" href="#toc-entry-60" role="doc-backlink">Pão Matlouh, pão argelino</a></h3>
+<ul class="simple">
+<li><p>350g de semoule (mistura entre fina e média se puder)</p></li>
+<li><p>100g de farinha de trigo (ou levain)</p></li>
+<li><p>60ml de água morna</p></li>
+<li><p>7g fermento &quot;active dry yeast&quot; ou um saquinho, se for menos é só deixar mais tempo (uns 10minutos) no repouso com todos ingredientes</p></li>
+<li><p>1 colher de sopa rasa de açúcar</p></li>
+<li><p>1 colher de café de sal</p></li>
+<li><p>100 ml ou mais de leite</p></li>
+</ul>
+<p>Preparo:</p>
+<ul class="simple">
+<li><p>Pega a farinha de trigo e uns 50ml de água morna pra misturar o fermento de saquinho, deixa repousar uns 10 min</p></li>
+<li><p>Enquanto isso vai preenchendo outra vasilha com a semola , sal e açúcar e dá uma misturada</p></li>
+<li><p>Junta os dois</p></li>
+<li><p>Vai ponto a qtdade de leite aos poucos, até ficar uma massa firme.</p></li>
+<li><p>Mistura e sova, não precisa ficar em ponto de véu, só deixar a massa lisa</p></li>
+<li><p>Repousa por 2 horas</p></li>
+<li><p>Faz bolas, pegando pedaços da massa de cerca de 140g, puxando das extremidades pro centro e fechando a bola com a ponta dos dedos</p></li>
+<li><p>Repousa 15 min</p></li>
+<li><p>Faz discos apertando com as mãos, com a marca da junção pra baixo.</p></li>
+<li><p>Repousa 30 minutos (pode ser menos q da certo)</p></li>
+<li><p>Leva pra frigideira 3 minutos de cada lado em fogo baixo (em casa: nível 3,5 da coil) ou mais se sentir necessidade</p></li>
+</ul>
+</section>
+<section id="pao-frances-mega-complicado">
+<h3><a class="toc-backref" href="#toc-entry-61" role="doc-backlink">Pao frances mega complicado</a></h3>
+<p>Ingredientes</p>
+<ul class="simple">
+<li><p>360 g (3 xícaras) de farinha de trigo</p></li>
+<li><p>230 g (1 xícara) de água</p></li>
+<li><p>4 g (1/2 sachê) de fermento biológico seco</p></li>
+<li><p>7 g (1/2 colher de sopa) de sal</p></li>
+</ul>
+<p>Modo de preparo</p>
+<ol class="arabic simple">
+<li><p>Em uma tigela grande, adicione 360 gramas de farinha de trigo. Isso equivale a aproximadamente 3 xícaras. Use qualquer farinha de trigo que você encontrar no mercado, só não pode ser aquelas que já vem com fermento. Aqui no canal tem um vídeo onde eu indico as marcas de farinha que mais eu utilizo</p></li>
+<li><p>Nessa receita vamos usar o fermento biológico seco instantâneo, que vem em um sachê de 10 g. Se você só tiver o fermento biológico fresco, aquele pastoso vendido em tablete, multiplique a quantidade de fermento por 3</p></li>
+<li><p>Precisamos de 4 g de fermento biológico seco. Mesmo usando uma balança de precisão, é difícil pesar tão pouca quantidade. Então a gente faz o seguinte: o sachê de fermento tem 10 g, despeje toda quantidade em um pires e faça a divisão de forma visual. 4 g seriam um pouco menos da metade do pacote</p></li>
+<li><p>De sal são 7 gramas. Isso dá aproximadamente meia colher de sopa</p></li>
+<li><p>Vamos adicionar o fermento e o sal na tigela. O fermento de um lado e o sal de outro. Neste momento é interessante não deixar esses dois ingredientes em contato direto para que o fermento não perca sua força</p></li>
+<li><p>Misture bem os ingredientes secos e aproveite para abrir um buraco no meio da farinha</p></li>
+<li><p>Acrescente a água, mas não coloque tudo, reserve um pouco no copo. Cada marca de farinha possui uma capacidade diferente de absorção. Nas primeiras tentativas, é melhor deixar a massa mais dura do que mole, pois podemos fazer a correção antes de começar a sova, conforme você vai ver logo mais</p></li>
+<li><p>Comece misturando com uma colher e depois use as mãos. Tente sujar apenas uma das mãos, a outra fica limpa para segurar a tigela. Aproveite toda farinha que ficar grudada nas laterais</p></li>
+<li><p>Agora vamos colocar a massa na bancada. Antes de começar a sovar, mas já com todos os ingredientes bem incorporados, sinta a consistência da massa</p></li>
+<li><p>Aqui, o segredo é você tentar usar o máximo de água que conseguir. Quanto mais água, mais leve vai ficar o miolo do pão. O problema é que se você ultrapassa o limite de água que a farinha é capaz de absorver, a massa vai ficar grudenta e difícil de manipular. Então, nas primeiras vezes, não use muita água pode deixar a massa um pouco mais dura</p></li>
+<li><p>Eu adiciono a água bem aos poucos, coloco uma ou duas tampinhas de garrafa de cada vez, misturo e verifico novamente a consistência</p></li>
+<li><p>Para finalizar, vamos modelar uma bola, cobrir e deixar descansando por 10 minutos antes de começar a sovar Durante essa pausa a farinha vai absorver melhor a água e a sova ficará mais fácil</p></li>
+<li><p>Para esse tipo de massa mais firme, vamos usar o método de sova clássico: Segure uma ponta com uma das mãos e empurre a massa sobre a bancada utilizando a base da palma da outra mão</p></li>
+<li><p>Não precisa colocar força e nem rasgar a massa. Dobre ou enrole a massa sobre si mesma, de volta ao ponto inicial</p></li>
+<li><p>Agora é só virar em 90º com a emenda para cima e repetir o movimento. A sova deve durar aproximadamente 10 minutos</p></li>
+<li><p>Após esse período, é importante que a massa esteja bem lisa e elástica. Se sentir necessidade, sove por mais 5 minutos</p></li>
+<li><p>Coloque a parte lisa para cima, modele uma bola usando as duas mãos e volte a massa para a tigela</p></li>
+<li><p>Cubra novamente com um pano e deixe descansar por cerca de 1 hora até dobrar de tamanho (se estiver calor é mais rápido)</p></li>
+<li><p>Enquanto a massa descansa, pegue uma assadeira e unte com um pouco de manteiga ou óleo para não grudar</p></li>
+<li><p>Nesta primeira fermentação, a massa deve crescer, mas não de forma exagerada. Se crescer demais, vai perder estrutura, o pão vai ficar achatado e não vai dourar</p></li>
+<li><p>Use a ponta dos dedos para descolar a massa da tigela, sempre com bastante delicadeza</p></li>
+<li><p>Coloque a massa sobre a bancada, com a parte mais lisa virada para baixo</p></li>
+<li><p>Se a massa estiver grudando, pode polvilhar um pouco de farinha na bancada.</p></li>
+<li><p>Amasse um pouco com a ponta dos dedos, sem colocar muita força, até formar um retângulo</p></li>
+<li><p>Vamos começar a modelagem. Dobre ligeiramente a base da massa para dentro e dobre as duas laterais em direção ao centro, formando um triângulo</p></li>
+<li><p>Comece a enrolar a massa a partir da ponta do triângulo. Enrole e pressione a massa levemente com a ponta dos dedos</p></li>
+<li><p>Quando estiver chegando perto da base, utilize os polegares para pressionar a massa sobre a bancada</p></li>
+<li><p>Mantenha a emenda da massa virada para baixo</p></li>
+<li><p>Tente utilize as duas mãos e arrastar suavemente a massa sobre a bancada. Isso vai criar uma tensão na superfície e vai ajudar a formar a pestana do pão, aquela parte mais saliente da crosta</p></li>
+<li><p>Coloque a massa modelada sobre a assadeira untada para aguardar a segunda fermentação</p></li>
+<li><p>Cubra e deixe descansar por mais 30 minutos</p></li>
+<li><p>Já pode ligar o forno em 250ºC, pois o preaquecimento também costuma demorar de 20 a 30 minutos.</p></li>
+<li><p>Para assar esse tipo de pão precisamos de bastante calor, então não tenha medo de usar a máxima temperatura que o seu forno consegue atingir. Não se preocupe, os equipamentos doméstico geralmente não passam de 200ºC, mesmo o termostato indicado mais do que isso</p></li>
+<li><p>A gente vai precisar de calor apenas na parte de baixo. Se o seu forno tem uma resistência superior, geralmente chamada de gratinador ou função grill, mantenha ela desligada por enquanto.</p></li>
+<li><p>Precisamos também injetar vapor de água dentro do forno nos minutos iniciais. E como a gente faz isso no forno doméstico? Eu vou ensinar dois métodos:</p></li>
+<li><p>O primeiro é o mais simples, usamos um borrifador para espalhar água dentro do forno</p></li>
+<li><p>No segundo método, vamos precisar de 1 ou 2 panos e uma forma de pão ou bolo inglês. Menos de 5 minutos antes de começar a assar o pão, enrole dois panos e coloque dentro da forma. Despeje água fervendo sobre eles e coloque dentro do forno, na parte mais inferior</p></li>
+<li><p>Use pelo menos um desses métodos para gerar vapor dentro do seu forno. De preferência, use os dois ao mesmo tempo, como nós vamos fazer aqui</p></li>
+<li><p>Após o descanso, o pão está pronto para entrar no forno</p></li>
+<li><p>Mas antes é necessário fazer um corte na sua superfície para a crosta não rachar enquanto estiver assando. Não precisa de uma lâmina de padeiro, pode improvisar usando uma faca de serra</p></li>
+<li><p>Faça um corte de uma ponta a outra do pão. Tente fazer um único movimento, formando uma linha levemente curvada para um dos lados, com cerca de 0,5 centímetros de espessura</p></li>
+<li><p>Abra rapidamente o forno, coloque a assadeira e borrife um pouco de água</p></li>
+<li><p>Após 15 a 20 minutos, caso você tenha utilizado o método com os panos enrolados, retire a forma de dentro do forno para cortar o vapor</p></li>
+<li><p>Agora vamos deixar o pão no forno por mais 20 a 30 minutos até dourar bem. No total serão aproximadamente 50 minutos de forno</p></li>
+<li><p>Se o pão não dourar neste período e o seu forno tiver a função gratinar ou grill, ligue por 5 minutos, reduzindo a temperatura de 250 para 210ºC</p></li>
+<li><p>Neste momento o cheiro de pão quentinho já vai ter se espalhado por toda casa</p></li>
+<li><p>Mas antes de comer, ainda precisamos esperar no mínimo 30 minutos. Eu sei que é difícil esperar, mas se cortar o pão agora o miolo vai ficar todo empelotado.</p></li>
+<li><p>Coloque o pão para resfriar sobre uma grade de resfriamento, pode usar uma boca de fogão desligada, por exemplo</p></li>
+<li><p>O pão fica com uma crosta crocante e um miolo bem macio</p></li>
+</ol>
+</section>
+<section id="pao-azimo">
+<h3><a class="toc-backref" href="#toc-entry-62" role="doc-backlink">Pao Azimo</a></h3>
+<ul class="simple">
+<li><p>240 g de trigo</p></li>
+<li><p>1 colher pequena de sal</p></li>
+<li><p>2 colheres de azeite</p></li>
+<li><p>1/4 xicara de agua morna</p></li>
+</ul>
+<p>Misture os ingredientes. Nao tem fermento. Nao precisa sovar. Corte a massa misturada em 8 pedacos, como pizza. Deixe os pedacos em bolinhas e numa superficie com farinha, passe o espremedor de macarrao para fazer um disco do tamanho da tua frigideira. Com a frigideira quente, deixe 2 minutos de cada lado. Ao terminar, deixe as massas embrulhadas num pano para nao ressecar.</p>
+<section id="recheio-para-o-pao-azimo">
+<h4>Recheio para o pao azimo</h4>
+<ul class="simple">
+<li><p>450g de carne moida</p></li>
+<li><p>temperos em folhas a gosto (coentro, cebolinha, etc)</p></li>
+<li><p>temperos em po a gosto (sal, pimenta do reino, etc)</p></li>
+</ul>
+<p>Misture os temperos na carne muita. Espalhe e amasse por todo o disco do pao azimo, de 1 a 2 cm de altura. Leve na frigideira para cozinhar o lado da carne moida. Se carne tiver gordura, nao precisa de azeite.</p>
+<p>Quando carne moida estiver cozida, adicione queijo e salada a gosto.</p>
+</section>
+</section>
+<section id="pao-da-mama">
+<h3><a class="toc-backref" href="#toc-entry-63" role="doc-backlink">Pao da Mama</a></h3>
+<p>Ingredientes</p>
+<ul class="simple">
+<li><p>1 batata doce (ou batata comum) cozida e amassada (opcional)</p></li>
+<li><p>2 xicaras de trigo</p></li>
+<li><p>1 pacote de fermento</p></li>
+<li><p>2 colheres de oleo</p></li>
+<li><p>1 colher pequena de sal</p></li>
+<li><p>graos a gosto</p></li>
+</ul>
+<p>Coloque 2 colheres de trigo, o pacote de fermeto e agua <em>morna</em> ate' engrossar. Reserve por 15 min.</p>
+<p>Coloque 1.5 xicara de trigo, batata, e os outros ingredientes. O restante do trigo vai aos poucos. Amasse bem. Se a batata for grande, nao precisa adicionar agua. Se grudar muito, adicione farinha. Depois de uniforme, se ainda grudar, adicione bem pouco de azeite.</p>
+<p>Deixe num recipiente <em>fechado</em> ate' dobrar de altura (~1h). Amasse bem mais uma vez e deixe repousar num recipiente para o forno untado (~1h).</p>
+<p>Leve ao forno quente (180.C) por ~40 min.</p>
+</section>
 </section>
 <section id="bolos-e-doces">
-<h2><a class="toc-backref" href="#toc-entry-52" role="doc-backlink">Bolos e doces</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-64" role="doc-backlink">Bolos e doces</a></h2>
 <section id="bolo-de-cenoura-com-linhaca">
-<h3><a class="toc-backref" href="#toc-entry-53" role="doc-backlink">Bolo de cenoura com linhaça</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-65" role="doc-backlink">Bolo de cenoura com linhaça</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>4 colheres de linhaça</p></li>
@@ -1540,7 +2076,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="bolo-de-cenoura">
-<h3><a class="toc-backref" href="#toc-entry-54" role="doc-backlink">Bolo de cenoura</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-66" role="doc-backlink">Bolo de cenoura</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 ovos</p></li>
@@ -1580,7 +2116,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="bolo-de-cenoura-ou-beterraba-da-dona-elza">
-<h3><a class="toc-backref" href="#toc-entry-55" role="doc-backlink">Bolo de cenoura ou beterraba da Dona Elza</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-67" role="doc-backlink">Bolo de cenoura ou beterraba da Dona Elza</a></h3>
 <ul class="simple">
 <li><p>3 cenouras médias</p></li>
 <li><p>2 xícaras de açúcar</p></li>
@@ -1592,7 +2128,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>Receita da Dona Elza.</p>
 </section>
 <section id="bolo-de-cenoura-nv1c">
-<h3><a class="toc-backref" href="#toc-entry-56" role="doc-backlink">Bolo de cenoura NV1C</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-68" role="doc-backlink">Bolo de cenoura NV1C</a></h3>
 <ul class="simple">
 <li><p>3 cenouras grandes</p></li>
 <li><p>4 ovos</p></li>
@@ -1616,7 +2152,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="bolo-de-cenoura-e-aveia">
-<h3><a class="toc-backref" href="#toc-entry-57" role="doc-backlink">Bolo de cenoura e aveia</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-69" role="doc-backlink">Bolo de cenoura e aveia</a></h3>
 <ul class="simple">
 <li><p>3 cenouras médias</p></li>
 <li><p>4 gema de ovos</p></li>
@@ -1631,7 +2167,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 <p>Inspirado nessa receita: <a class="reference external" href="https://cooknenjoy.com/bolo-de-cenoura-com-aveia/">https://cooknenjoy.com/bolo-de-cenoura-com-aveia/</a></p>
 </section>
 <section id="bolo-de-banana-e-aveia-com-uvas-passas">
-<h3><a class="toc-backref" href="#toc-entry-58" role="doc-backlink">Bolo de banana e aveia com uvas-passas</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-70" role="doc-backlink">Bolo de banana e aveia com uvas-passas</a></h3>
 <ul class="simple">
 <li><p>3 ovos</p></li>
 <li><p>0,5 xícara de óleo</p></li>
@@ -1642,7 +2178,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </ul>
 </section>
 <section id="bolo-de-fuba">
-<h3><a class="toc-backref" href="#toc-entry-59" role="doc-backlink">Bolo de Fubá</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-71" role="doc-backlink">Bolo de Fubá</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 vidro de leite de coco</p></li>
@@ -1664,7 +2200,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="bolo-de-chocolate">
-<h3><a class="toc-backref" href="#toc-entry-60" role="doc-backlink">Bolo de chocolate</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-72" role="doc-backlink">Bolo de chocolate</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 colheres de sopa de linhaça</p></li>
@@ -1691,7 +2227,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="bolo-branco">
-<h3><a class="toc-backref" href="#toc-entry-61" role="doc-backlink">Bolo branco</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-73" role="doc-backlink">Bolo branco</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 colheres de sopa de linhaça</p></li>
@@ -1713,7 +2249,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="bolo-de-aipim">
-<h3><a class="toc-backref" href="#toc-entry-62" role="doc-backlink">Bolo de aipim</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-74" role="doc-backlink">Bolo de aipim</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 1/2 kg de aipim ralado (ou 3 xícaras)</p></li>
@@ -1729,7 +2265,7 @@ No final um copo de leite com uma colher de sopa de maizena</p>
 </section>
 </section>
 <section id="pao-de-lo">
-<h3><a class="toc-backref" href="#toc-entry-63" role="doc-backlink">Pão de ló</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-75" role="doc-backlink">Pão de ló</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>6 ovos</p></li>
@@ -1747,7 +2283,7 @@ Levar ao forno pré aquecido a 180oC por uns 20 min.</p>
 </section>
 </section>
 <section id="pao-de-lo-de-chocolate">
-<h3><a class="toc-backref" href="#toc-entry-64" role="doc-backlink">Pão de ló de chocolate</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-76" role="doc-backlink">Pão de ló de chocolate</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>5 ovos</p></li>
@@ -1767,7 +2303,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="danoninho">
-<h3><a class="toc-backref" href="#toc-entry-65" role="doc-backlink">Danoninho</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-77" role="doc-backlink">Danoninho</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>300 g de creme de leite</p></li>
@@ -1781,7 +2317,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="biscoito">
-<h3><a class="toc-backref" href="#toc-entry-66" role="doc-backlink">Biscoito</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-78" role="doc-backlink">Biscoito</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>200 g (1 pacote) de fécula de batata,</p></li>
@@ -1795,7 +2331,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="brownies-aux-noisettes">
-<h3><a class="toc-backref" href="#toc-entry-67" role="doc-backlink">Brownies aux noisettes</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-79" role="doc-backlink">Brownies aux noisettes</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>4 ovos</p></li>
@@ -1829,7 +2365,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="pasta-cigarrete">
-<h3><a class="toc-backref" href="#toc-entry-68" role="doc-backlink">Pasta cigarrete</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-80" role="doc-backlink">Pasta cigarrete</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>50g de clara</p></li>
@@ -1844,7 +2380,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="bisquit-joconde">
-<h3><a class="toc-backref" href="#toc-entry-69" role="doc-backlink">Bisquit joconde</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-81" role="doc-backlink">Bisquit joconde</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>150g de TPT ( 75g de açúcar impalpável + 75g de farinha de amêndoas)</p></li>
@@ -1867,7 +2403,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="torta-mousse-de-chocolate">
-<h3><a class="toc-backref" href="#toc-entry-70" role="doc-backlink">Torta mousse de chocolate</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-82" role="doc-backlink">Torta mousse de chocolate</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>2 ou 3 camadas de pão de ló de chocolate</p></li>
@@ -1888,7 +2424,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="torta-de-abacaxi-com-coco">
-<h3><a class="toc-backref" href="#toc-entry-71" role="doc-backlink">Torta de abacaxi com côco</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-83" role="doc-backlink">Torta de abacaxi com côco</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>2 ou 3 camadas de pão de ló</p></li>
@@ -1910,7 +2446,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="torta-de-limao">
-<h3><a class="toc-backref" href="#toc-entry-72" role="doc-backlink">Torta de limão</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-84" role="doc-backlink">Torta de limão</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>4 colheres de sopa de açucar</p></li>
@@ -1928,7 +2464,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="torta-de-sorvete">
-<h3><a class="toc-backref" href="#toc-entry-73" role="doc-backlink">Torta de Sorvete</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-85" role="doc-backlink">Torta de Sorvete</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 lata de leite condensado</p></li>
@@ -1949,7 +2485,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="bolo-de-milho-01">
-<h3><a class="toc-backref" href="#toc-entry-74" role="doc-backlink">Bolo de milho (01)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-86" role="doc-backlink">Bolo de milho (01)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>3 ovos</p></li>
@@ -1967,7 +2503,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="bolo-de-milho-02">
-<h3><a class="toc-backref" href="#toc-entry-75" role="doc-backlink">Bolo de milho (02)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-87" role="doc-backlink">Bolo de milho (02)</a></h3>
 <ul class="simple">
 <li><p>2 xícaras de fubá (cuz-cuz)</p></li>
 <li><p>1 xícara de maizena</p></li>
@@ -1984,7 +2520,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 <p>Dica: untar com açúcar e canela. Receita da Elza.</p>
 </section>
 <section id="cacarola-italiana">
-<h3><a class="toc-backref" href="#toc-entry-76" role="doc-backlink">Caçarola italiana</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-88" role="doc-backlink">Caçarola italiana</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>5 ovos</p></li>
@@ -2002,7 +2538,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="pao-de-sto-antonio">
-<h3><a class="toc-backref" href="#toc-entry-77" role="doc-backlink">Pão de Sto. Antonio</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-89" role="doc-backlink">Pão de Sto. Antonio</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500g de farinha</p></li>
@@ -2027,7 +2563,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </ul>
 </section>
 <section id="pudim-4-leites">
-<h3><a class="toc-backref" href="#toc-entry-78" role="doc-backlink">Pudim 4 leites</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-90" role="doc-backlink">Pudim 4 leites</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 lata de leite condensado</p></li>
@@ -2039,7 +2575,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 <p>Dissolver a gelatina no leite quente e bater os demais no liquidificador, misturando tudo. Caramelar (opcional) a forma e levar à geladeira.</p>
 </section>
 <section id="pudim-expresso-de-chocolate">
-<h3><a class="toc-backref" href="#toc-entry-79" role="doc-backlink">Pudim expresso de chocolate</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-91" role="doc-backlink">Pudim expresso de chocolate</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>200 g de chocolate ao leite picado</p></li>
@@ -2052,7 +2588,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="brigadeirao">
-<h3><a class="toc-backref" href="#toc-entry-80" role="doc-backlink">Brigadeirão</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-92" role="doc-backlink">Brigadeirão</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 lata de creme de leite</p></li>
@@ -2064,7 +2600,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 <p>Como fazer: Bater no liquidificador. Untar forma com margarina. Levar ao microondas por 10 minutos.</p>
 </section>
 <section id="cookies">
-<h3><a class="toc-backref" href="#toc-entry-81" role="doc-backlink">Cookies</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-93" role="doc-backlink">Cookies</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1/2 xícara de amido de milho</p></li>
@@ -2078,7 +2614,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 <p>Como fazer: Colocar na forma em colheradas.</p>
 </section>
 <section id="mousee-de-maracuja">
-<h3><a class="toc-backref" href="#toc-entry-82" role="doc-backlink">Mousee de Maracujá</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-94" role="doc-backlink">Mousee de Maracujá</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>poupa de maracujá (250 g, ou ~$ 4 maracujás)</p></li>
@@ -2094,7 +2630,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="muffin-de-chocolate-e-banana">
-<h3><a class="toc-backref" href="#toc-entry-83" role="doc-backlink">Muffin de chocolate e banana</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-95" role="doc-backlink">Muffin de chocolate e banana</a></h3>
 <p>Ingredientes (para uma fornada de 6 muffins):</p>
 <ul class="simple">
 <li><p>1 colher de sopa de essência de baunilha</p></li>
@@ -2113,7 +2649,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="doce-de-abobora">
-<h3><a class="toc-backref" href="#toc-entry-84" role="doc-backlink">Doce de Abóbora</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-96" role="doc-backlink">Doce de Abóbora</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1 abóbora (qualquer tamanho)</p></li>
@@ -2126,7 +2662,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="eng-steamed-maple-pudding">
-<h3><a class="toc-backref" href="#toc-entry-85" role="doc-backlink">[ENG] Steamed Maple Pudding</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-97" role="doc-backlink">[ENG] Steamed Maple Pudding</a></h3>
 <p>Ingredients:</p>
 <ul class="simple">
 <li><p>1/2 Cup oat bran</p></li>
@@ -2143,7 +2679,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="pudim-de-xarope-cozido-no-vapor">
-<h3><a class="toc-backref" href="#toc-entry-86" role="doc-backlink">Pudim de xarope cozido no vapor</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-98" role="doc-backlink">Pudim de xarope cozido no vapor</a></h3>
 <ul class="simple">
 <li><p>1/2 xícara de farelo de aveia</p></li>
 <li><p>1/2 xícara de aveia (não instantânea)</p></li>
@@ -2159,7 +2695,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="eng-apple-carrot-muffins">
-<h3><a class="toc-backref" href="#toc-entry-87" role="doc-backlink">[ENG] Apple Carrot Muffins</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-99" role="doc-backlink">[ENG] Apple Carrot Muffins</a></h3>
 <p>Ingredients:</p>
 <ul class="simple">
 <li><p>1.5 Cup unbleached white flour</p></li>
@@ -2181,7 +2717,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 <p>How to prepare: Mix all dry. Mix all wet. Combine. Bake for 30 minutes at 350 Fahrenheit.</p>
 </section>
 <section id="muffins-de-cenoura-com-maca">
-<h3><a class="toc-backref" href="#toc-entry-88" role="doc-backlink">Muffins de cenoura com maçã</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-100" role="doc-backlink">Muffins de cenoura com maçã</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>1,5 xícara de farinha branca não branqueada</p></li>
@@ -2203,7 +2739,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 <p>Como fazer: Misture tudo seco. Misture tudo molhado. Combine. Asse por 30 minutos a 175-200 Celsius.</p>
 </section>
 <section id="figo-em-calda-com-casca">
-<h3><a class="toc-backref" href="#toc-entry-89" role="doc-backlink">Figo em calda (com casca)</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-101" role="doc-backlink">Figo em calda (com casca)</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>500 g (uma duzia) de figos maduros</p></li>
@@ -2218,7 +2754,7 @@ Levar para assar a 180oC por uns 20 a 25 min.</p>
 </section>
 </section>
 <section id="cuca-de-banana-com-farofa">
-<h3><a class="toc-backref" href="#toc-entry-90" role="doc-backlink">Cuca de banana com farofa</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-102" role="doc-backlink">Cuca de banana com farofa</a></h3>
 <p>Ingredientes cuca:</p>
 <ul class="simple">
 <li><p>2 xícaras (chá) de farinha de trigo</p></li>
@@ -2246,7 +2782,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </section>
 </section>
 <section id="eng-blueberry-and-apple-cake">
-<h3><a class="toc-backref" href="#toc-entry-91" role="doc-backlink">[ENG] Blueberry and apple cake</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-103" role="doc-backlink">[ENG] Blueberry and apple cake</a></h3>
 <p>Ingredient and how to make it:</p>
 <ul class="simple">
 <li><p>130 g oat flakes (gluten free) (1 1/2 cup)</p></li>
@@ -2265,7 +2801,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="eng-apple-cake-pie">
-<h3><a class="toc-backref" href="#toc-entry-92" role="doc-backlink">[ENG] Apple cake/pie</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-104" role="doc-backlink">[ENG] Apple cake/pie</a></h3>
 <p>Recipe and preparation:</p>
 <ul class="simple">
 <li><p>2 apples</p></li>
@@ -2282,7 +2818,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="sorvete-marido-gelado">
-<h3><a class="toc-backref" href="#toc-entry-93" role="doc-backlink">Sorvete &quot;Marido Gelado&quot;</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-105" role="doc-backlink">Sorvete &quot;Marido Gelado&quot;</a></h3>
 <p>Receita:</p>
 <ul class="simple">
 <li><p>2 caixas de leite condensado</p></li>
@@ -2295,7 +2831,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="eng-banana-bread">
-<h3><a class="toc-backref" href="#toc-entry-94" role="doc-backlink">[ENG] Banana bread</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-106" role="doc-backlink">[ENG] Banana bread</a></h3>
 <ul class="simple">
 <li><p>4 bananas</p></li>
 <li><p>1.5 cups oat (milled)</p></li>
@@ -2311,7 +2847,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 <p>Inspired on this almond flour recipe: <a class="reference external" href="https://www.rhubarbarians.com/healthy-vegan-banana-bread/">https://www.rhubarbarians.com/healthy-vegan-banana-bread/</a></p>
 </section>
 <section id="bolo-de-aveia-com-laranja">
-<h3><a class="toc-backref" href="#toc-entry-95" role="doc-backlink">Bolo de aveia com laranja</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-107" role="doc-backlink">Bolo de aveia com laranja</a></h3>
 <ul class="simple">
 <li><p>1 xícara aveia em flocos</p></li>
 <li><p>2 laranjas espremidas (160 ml) para hidratar aveia</p></li>
@@ -2326,7 +2862,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 <p>Deixe hidratando por pelo menos 30 minutos. Depois, misture todos os ingredientes (fermento por ultimo). Asse por aproximadamente 30 minutos.</p>
 </section>
 <section id="bolo-de-fuba-com-cenoura">
-<h3><a class="toc-backref" href="#toc-entry-96" role="doc-backlink">Bolo de Fubá com Cenoura</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-108" role="doc-backlink">Bolo de Fubá com Cenoura</a></h3>
 <ul class="simple">
 <li><p>3 ovos - 160 Gr</p></li>
 <li><p>1 1/2 xícara de açúcar - 350 Gr</p></li>
@@ -2339,7 +2875,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 <p>Assar a 180 graus por 45 minutos.</p>
 </section>
 <section id="brownie-saudavel">
-<h3><a class="toc-backref" href="#toc-entry-97" role="doc-backlink">Brownie saudavel</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-109" role="doc-backlink">Brownie saudavel</a></h3>
 <ul class="simple">
 <li><p>2 macas picadas</p></li>
 <li><p>8 colheres de sopa de cacau em po'</p></li>
@@ -2350,7 +2886,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 <p>Misture bem todos os ingredientes em um processador. Unte uma forma com oleo de coco. Leve ao forno 180.C por 20 minutos. Alternativamente, leve ao micro-ondas por 4 ou 5 minutos.</p>
 </section>
 <section id="arroz-doce">
-<h3><a class="toc-backref" href="#toc-entry-98" role="doc-backlink">Arroz doce</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-110" role="doc-backlink">Arroz doce</a></h3>
 <p>Ingredientes:</p>
 <ul class="simple">
 <li><p>2 xicara de arroz cozido</p></li>
@@ -2365,7 +2901,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </section>
 </section>
 <section id="cuca-de-banana">
-<h3><a class="toc-backref" href="#toc-entry-99" role="doc-backlink">Cuca de banana</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-111" role="doc-backlink">Cuca de banana</a></h3>
 <section id="cobertura-1">
 <h4>Cobertura</h4>
 <ul class="simple">
@@ -2400,14 +2936,24 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 <p><a class="reference external" href="https://panelinha.com.br/receita/cuca-de-banana">https://panelinha.com.br/receita/cuca-de-banana</a></p>
 </section>
 </section>
+<section id="chocolate-fudge">
+<h3><a class="toc-backref" href="#toc-entry-112" role="doc-backlink">Chocolate Fudge</a></h3>
+<ul class="simple">
+<li><p>200g de chocolate derretido</p></li>
+<li><p>140g de pasta de amendoim</p></li>
+<li><p>nozes picadas</p></li>
+<li><p>pedrinhas de sal a gosto</p></li>
+</ul>
+<p>misture o chocolate e o amendoim numa travessa com papel manteiga. Salpique as nozes (e o sal) e leve a geladeira (ou freezer) ate' a consistencia desejada.</p>
+</section>
 </section>
 <section id="churrasco">
-<h2><a class="toc-backref" href="#toc-entry-100" role="doc-backlink">Churrasco</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-113" role="doc-backlink">Churrasco</a></h2>
 <p>Three appreciated beef steaks for churrasco: picanha, flat iron and chuckie. (Unknown source)</p>
 <p>Some people say that tenderloin is &quot;flavorless&quot;...</p>
 <p>Picanha is the cap that sits on top of the Top Sirloin with the fat on. Also called as Rump Cap.</p>
 <section id="equivalencia">
-<h3><a class="toc-backref" href="#toc-entry-101" role="doc-backlink">Equivalencia</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-114" role="doc-backlink">Equivalencia</a></h3>
 <ul class="simple">
 <li><p>Brisket = ponta do acem</p></li>
 <li><p>Chuck = acem</p></li>
@@ -2428,7 +2974,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="equivalence">
-<h3><a class="toc-backref" href="#toc-entry-102" role="doc-backlink">Equivalence</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-115" role="doc-backlink">Equivalence</a></h3>
 <ul class="simple">
 <li><p>(costela) ponta de agulha = plate/shortplate</p></li>
 <li><p>acem = chuck*/chuckie/flat iron/brisket*</p></li>
@@ -2452,14 +2998,14 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </section>
 </section>
 <section id="drinks">
-<h2><a class="toc-backref" href="#toc-entry-103" role="doc-backlink">Drinks</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-116" role="doc-backlink">Drinks</a></h2>
 <ul class="simple">
 <li><p>&quot;shot&quot; (&quot;dose&quot;) = 2 oz</p></li>
 <li><p>&quot;meter&quot; = 1 and 0.5 oz</p></li>
 <li><p>The biggest difference between <strong>tonic water</strong> and <strong>club soda</strong> is the taste. Tonic water has a strong bitter and sweet flavor, while club soda has a mild, faintly salty flavor.</p></li>
 </ul>
 <section id="super-juice">
-<h3><a class="toc-backref" href="#toc-entry-104" role="doc-backlink">Super juice</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-117" role="doc-backlink">Super juice</a></h3>
 <p>How to make it:</p>
 <ul class="simple">
 <li><p>Peel and weigh the skin of your citric fruit (lime, lemon, or orange)</p></li>
@@ -2492,7 +3038,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </section>
 </section>
 <section id="caipirinha-with-super-juice">
-<h3><a class="toc-backref" href="#toc-entry-105" role="doc-backlink">Caipirinha with super juice</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-118" role="doc-backlink">Caipirinha with super juice</a></h3>
 <ul class="simple">
 <li><p>1x volume of lime super juice</p></li>
 <li><p>1x volume of cachaca</p></li>
@@ -2502,7 +3048,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="super-juice-drink">
-<h3><a class="toc-backref" href="#toc-entry-106" role="doc-backlink">Super juice drink</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-119" role="doc-backlink">Super juice drink</a></h3>
 <ul class="simple">
 <li><p>20ml rum</p></li>
 <li><p>15ml syrup</p></li>
@@ -2510,7 +3056,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="vinho-quente">
-<h3><a class="toc-backref" href="#toc-entry-107" role="doc-backlink">Vinho quente</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-120" role="doc-backlink">Vinho quente</a></h3>
 <ul class="simple">
 <li><p>1 xícara (chá) de açúcar</p></li>
 <li><p>1 e 1/2 xícara (chá) de água</p></li>
@@ -2522,7 +3068,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="negroni">
-<h3><a class="toc-backref" href="#toc-entry-108" role="doc-backlink">Negroni</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-121" role="doc-backlink">Negroni</a></h3>
 <ul class="simple">
 <li><p>[old-f glass]</p></li>
 <li><p>1 dose de dry Vermouth</p></li>
@@ -2532,7 +3078,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 <p>Adicione gelo e fruta cítrica para enfeite. Gin pode ser substituido por vodka.</p>
 </section>
 <section id="gin-and-tonic">
-<h3><a class="toc-backref" href="#toc-entry-109" role="doc-backlink">Gin and tonic</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-122" role="doc-backlink">Gin and tonic</a></h3>
 <ul class="simple">
 <li><p>[highball/old-f glass]</p></li>
 <li><p>2 oz gin</p></li>
@@ -2541,7 +3087,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="cosmopolitan">
-<h3><a class="toc-backref" href="#toc-entry-110" role="doc-backlink">Cosmopolitan</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-123" role="doc-backlink">Cosmopolitan</a></h3>
 <ul class="simple">
 <li><p>[cocktail glass]</p></li>
 <li><p>1.5 oz vodka</p></li>
@@ -2552,7 +3098,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="mojito">
-<h3><a class="toc-backref" href="#toc-entry-111" role="doc-backlink">Mojito</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-124" role="doc-backlink">Mojito</a></h3>
 <ul class="simple">
 <li><p>[old-f glass]</p></li>
 <li><p>4 mint leaves</p></li>
@@ -2564,7 +3110,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="tequila-sunrise">
-<h3><a class="toc-backref" href="#toc-entry-112" role="doc-backlink">Tequila Sunrise</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-125" role="doc-backlink">Tequila Sunrise</a></h3>
 <ul class="simple">
 <li><p>[highball glass]</p></li>
 <li><p>2 oz tequila</p></li>
@@ -2573,7 +3119,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="pina-colada">
-<h3><a class="toc-backref" href="#toc-entry-113" role="doc-backlink">Pina Colada</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-126" role="doc-backlink">Pina Colada</a></h3>
 <ul class="simple">
 <li><p>[goblet glass]</p></li>
 <li><p>1 slice of pineapple</p></li>
@@ -2584,7 +3130,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="rob-roy">
-<h3><a class="toc-backref" href="#toc-entry-114" role="doc-backlink">Rob Roy</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-127" role="doc-backlink">Rob Roy</a></h3>
 <ul class="simple">
 <li><p>[cocktail glass]</p></li>
 <li><p>2.5 oz Scotch</p></li>
@@ -2595,7 +3141,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="blood-mary">
-<h3><a class="toc-backref" href="#toc-entry-115" role="doc-backlink">Blood Mary</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-128" role="doc-backlink">Blood Mary</a></h3>
 <ul class="simple">
 <li><p>[highball/old-f glass]</p></li>
 <li><p>1.5 oz Vodka</p></li>
@@ -2607,7 +3153,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="mai-tai">
-<h3><a class="toc-backref" href="#toc-entry-116" role="doc-backlink">Mai Tai</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-129" role="doc-backlink">Mai Tai</a></h3>
 <ul class="simple">
 <li><p>[goblet/old-f glass]</p></li>
 <li><p>1.5 oz rum</p></li>
@@ -2617,7 +3163,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="sidecar">
-<h3><a class="toc-backref" href="#toc-entry-117" role="doc-backlink">Sidecar</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-130" role="doc-backlink">Sidecar</a></h3>
 <ul class="simple">
 <li><p>[cocktail glass]</p></li>
 <li><p>2 oz brandy (cognac or Armagnac; or bourbon)</p></li>
@@ -2626,7 +3172,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="old-fashioned">
-<h3><a class="toc-backref" href="#toc-entry-118" role="doc-backlink">Old-fashioned</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-131" role="doc-backlink">Old-fashioned</a></h3>
 <ul class="simple">
 <li><p>[old-f glass]</p></li>
 <li><p>0.5 teaspoon sugar (1 sugar cube)</p></li>
@@ -2635,7 +3181,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="moscow-mule">
-<h3><a class="toc-backref" href="#toc-entry-119" role="doc-backlink">Moscow mule</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-132" role="doc-backlink">Moscow mule</a></h3>
 <ul class="simple">
 <li><p>[copper glass]</p></li>
 <li><p>2 oz vodka</p></li>
@@ -2644,7 +3190,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="penicillin">
-<h3><a class="toc-backref" href="#toc-entry-120" role="doc-backlink">Penicillin</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-133" role="doc-backlink">Penicillin</a></h3>
 <ul class="simple">
 <li><p>[old-f glass]</p></li>
 <li><p>2 oz Scotch</p></li>
@@ -2654,7 +3200,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="aperol-spritz">
-<h3><a class="toc-backref" href="#toc-entry-121" role="doc-backlink">Aperol spritz</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-134" role="doc-backlink">Aperol spritz</a></h3>
 <ul class="simple">
 <li><p>[goblet/wine glass]</p></li>
 <li><p>1 slice orange</p></li>
@@ -2664,7 +3210,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="aviation">
-<h3><a class="toc-backref" href="#toc-entry-122" role="doc-backlink">Aviation</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-135" role="doc-backlink">Aviation</a></h3>
 <ul class="simple">
 <li><p>[cocktail glass]</p></li>
 <li><p>2 oz gin</p></li>
@@ -2673,7 +3219,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="gin-martini">
-<h3><a class="toc-backref" href="#toc-entry-123" role="doc-backlink">Gin Martini</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-136" role="doc-backlink">Gin Martini</a></h3>
 <ul class="simple">
 <li><p>[cocktail glass]</p></li>
 <li><p>2.5 oz gin</p></li>
@@ -2683,7 +3229,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="grand-manhattan">
-<h3><a class="toc-backref" href="#toc-entry-124" role="doc-backlink">Grand Manhattan</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-137" role="doc-backlink">Grand Manhattan</a></h3>
 <ul class="simple">
 <li><p>[cocktail glass]</p></li>
 <li><p>1.5 oz bourbon</p></li>
@@ -2693,7 +3239,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="the-revolver">
-<h3><a class="toc-backref" href="#toc-entry-125" role="doc-backlink">The Revolver</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-138" role="doc-backlink">The Revolver</a></h3>
 <ul class="simple">
 <li><p>2 oz. (60 ml) Old Grand-Dad Bonded Bourbon</p></li>
 <li><p>1/2 oz. (15 ml) Tia Maria Coffee Liqueur</p></li>
@@ -2702,7 +3248,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="other-drinks">
-<h3><a class="toc-backref" href="#toc-entry-126" role="doc-backlink">Other drinks</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-139" role="doc-backlink">Other drinks</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://insanelygoodrecipes.com/brazilian-cocktails/">https://insanelygoodrecipes.com/brazilian-cocktails/</a></p></li>
 <li><p><a class="reference external" href="https://insanelygoodrecipes.com/dark-rum-cocktails/">https://insanelygoodrecipes.com/dark-rum-cocktails/</a></p></li>
@@ -2710,7 +3256,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </section>
 </section>
 <section id="observacoes-culinarias">
-<h2><a class="toc-backref" href="#toc-entry-127" role="doc-backlink">Observações culinárias</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-140" role="doc-backlink">Observações culinárias</a></h2>
 <ul class="simple">
 <li><p>Fogo alto se usa para cozinhar alguma coisa rápido (batata frita, por exemplo, tem que ser feita em fogo alto). No entanto, cozinhar em fogo alto, queima o alimento por fora e não cozinha muito por dentro.</p></li>
 <li><p>Fogo baixo é usado para cozinhar em geral. Caso a panela fique fechada, o alimento vai &quot;fazer água&quot;. Caso a panela fique fechada, o alimento vai cozinhar. Caso você mexa o alimento com a panela aberta, o alimento seca.</p></li>
@@ -2718,7 +3264,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 <li><p>Quando tirar os bolos do forno: em geral a borda superior descola-se da fôrma, num tom levemente marrom, e a massa ganha um aspecto de pequenas rachaduras.</p></li>
 </ul>
 <section id="medidores-de-volume">
-<h3><a class="toc-backref" href="#toc-entry-128" role="doc-backlink">Medidores de volume</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-141" role="doc-backlink">Medidores de volume</a></h3>
 <ul class="simple">
 <li><p>1 &quot;cup&quot; (americano) = 237 ml</p></li>
 <li><p>1 copo = 200 ml</p></li>
@@ -2728,7 +3274,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="eng-measurements">
-<h3><a class="toc-backref" href="#toc-entry-129" role="doc-backlink">[ENG] Measurements</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-142" role="doc-backlink">[ENG] Measurements</a></h3>
 <ul class="simple">
 <li><p>Dash or pinch = less than 1/8 teaspoon</p></li>
 <li><p>1 teaspoon &quot;tsp&quot; = 1/3 tablespoon ~ 5 ml</p></li>
@@ -2738,14 +3284,14 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="fermentos">
-<h3><a class="toc-backref" href="#toc-entry-130" role="doc-backlink">Fermentos</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-143" role="doc-backlink">Fermentos</a></h3>
 <p><em>Fermento biológico</em> é indicado para massas de pão/salgados e pode ser em tabletes ou granulado. O fermento biológioco deve ser dissolvido previamente num pouco de leite morno antes de ser adicionado à receita.</p>
 <p><em>Fermento Royal</em> é o <em>fermento em pó</em>, indicado para massas de bolos/doces. O fermento é em geral o último ingrediente a ser adicionado, e não se deve bater muito a receita após a sua adição (para não ficar &quot;pisado&quot;).</p>
 <p>Existe ainda um chamado &quot;fermento de pão&quot; que é um fermento cultivado caseiramente, mas de pequena utilização.</p>
 <p>Quantidade: 1 tablete de fermento biológico equivale a uma 1 colher-Sopa de Royal ou granulado.</p>
 </section>
 <section id="pratos-indianos-e-nepales">
-<h3><a class="toc-backref" href="#toc-entry-131" role="doc-backlink">Pratos indianos e nepales</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-144" role="doc-backlink">Pratos indianos e nepales</a></h3>
 <ul class="simple">
 <li><p>Chana curry -- grão de bico no molho</p></li>
 <li><p>Naan -- pão sem fermento</p></li>
@@ -2758,7 +3304,7 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </ul>
 </section>
 <section id="fuba-e-farinha-de-milho">
-<h3><a class="toc-backref" href="#toc-entry-132" role="doc-backlink">Fubá e farinha de milho</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-145" role="doc-backlink">Fubá e farinha de milho</a></h3>
 <p>De acordo com a Anvisa, farinha de milho e fubá são a mesma coisa: trata-se do produto obtido a partir da moagem do grão de milho. No entanto, na prática, tais produtos apresentam características e funções diferentes:</p>
 <p>Farinha de milho flocada: em seu processo de produção, essa farinha de milho é hidratada, triturada e depois torrada. Assim, o resultado são flocos espessos sequinhos, que conhecemos também pelo nome de farinha de biju.</p>
 <p>Fubá: é um produto de grãos médios, na qual o milho degerminado é moído. O resultado, nesse caso, é uma farinha com flocos mais finos, e que absorve mais água.</p>
@@ -2769,14 +3315,14 @@ Acrescente a farinha, aos poucos, intercalando com o leite, e bata até incorpor
 </section>
 </section>
 <section id="eng-corn-strach-corn-flour-corn-meal">
-<h3><a class="toc-backref" href="#toc-entry-133" role="doc-backlink">[Eng] Corn strach, corn flour, corn meal</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-146" role="doc-backlink">[Eng] Corn strach, corn flour, corn meal</a></h3>
 <p>Corn meal (also written 'cornmeal'): is made from grinding dried corn into a powder. The texture of corn meal can vary. It ranges from coarse, medium, and fine. Typically, the corn meal bought in the grocery store is medium or coarsely ground. Once corn meal has become finely ground it is referred to as corn flour.</p>
 <p>Corn Flour: is a type of flour that is made from finely-milled corn kernels. Depending on the corn's color, it can either come in yellow, white, or even blue. Normally, this type of flour contains more than just dried corn kernels. It also contains the germ, hulls, and endosperm of the corn, which is what makes it whole-grain flour. Cornflour tends to take on a sweet, earthy flavor.</p>
 <p>Corn Starch: consists only of the endosperm of the corn kernels. This makes cornstarch devoid of added protein, fiber, and other nutrients, taking on a white, chalky appearance. White and flavorless, cornstarch adds more texture than taste to a dish. As such, it is used as a thickening agent.</p>
 </section>
 </section>
 <section id="para-avaliar">
-<h2><a class="toc-backref" href="#toc-entry-134" role="doc-backlink">Para avaliar</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-147" role="doc-backlink">Para avaliar</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.receitasdepesos.com.br/pao-de-queijo-super-macio-melhor-do-que-de-padaria-voce-tem-que-fazer.html">https://www.receitasdepesos.com.br/pao-de-queijo-super-macio-melhor-do-que-de-padaria-voce-tem-que-fazer.html</a></p></li>
 <li><p><a class="reference external" href="https://www.curiouscuisiniere.com/pandebono-cassava-bread/">https://www.curiouscuisiniere.com/pandebono-cassava-bread/</a></p></li>
